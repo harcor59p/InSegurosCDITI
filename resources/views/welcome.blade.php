@@ -14,8 +14,13 @@
         <br><br>
         <div align="center"><img src="logo.png" alt=""></div>
         <br><br>
-        <button type="button" class="btn btn-dark btn-lg btn-block">Registrarse</button>
-        <button type="button" class="btn btn-dark btn-lg btn-block">Ingresar</button>
+        <form action="" method="post">
+            <button type="button" class="btn btn-dark btn-lg btn-block">Registrarse</button>
+        </form>
+        <br>
+        <form action="" method="post">
+            <button type="button" class="btn btn-dark btn-lg btn-block">Ingresar</button>
+        </form>
     </div>
 </body>
 </html>
