@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::middleware(['auth'])->group(function(){
+    
+    //Ruta para ir al Dashboard    
+    //******************* Ruta para Usuarios **********************//
+    //
+
+
+});
+
