@@ -20,11 +20,13 @@ Route::get('/', function () {
 });
 
 
+
 Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::view('login', 'auth.login');
 
 Route::middleware(['auth'])->group(function(){
-    
-    //Ruta para ir al Dashboard    
+
+    //Ruta para ir al Dashboard
     //******************* Ruta para Usuarios **********************//
     //
 

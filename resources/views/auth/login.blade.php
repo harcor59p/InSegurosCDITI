@@ -31,24 +31,24 @@
             font-weight: bold;
         }
         .loginbtn{
-            font-weight: bold; 
-            background-color:#4a38a7; 
-            padding-left: 2.5rem; 
+            font-weight: bold;
+            background-color:#4a38a7;
+            padding-left: 2.5rem;
             padding-right: 2.5rem;
         }
         .div-loginbtn{
-            display: flex; 
+            display: flex;
             justify-content: center;
         }
         .btnstl{
-            display: flex; 
+            display: flex;
             justify-content: center;
         }
         footer{
             background-color: #4a38a7;
         }
-        
-        
+
+
     </style>
 </head>
 <body>
@@ -56,7 +56,7 @@
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="text-center col-md-9 col-lg-6 col-xl-5">
-                    <img src="logo.png" class="img-fluid">
+                    <img src="{{asset('logo.png')}}" class="img-fluid">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <form action="{{Route('login')}}" method="POST">
@@ -101,7 +101,7 @@
                                 <button type="button" class="loginbtn text-white btn btn-lg btn-block">Login</button>
                             </div>
                             <div class="btnstl">
-                                <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta? 
+                                <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
                                 <a href="#!" class="text-body-bold">Registrarse</a></p>
                             </div>
                         </div>

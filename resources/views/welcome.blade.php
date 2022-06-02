@@ -15,13 +15,11 @@
         <br><br>
         <div align="center"><img src="Logo.png" alt="No disponible"></div>
         <br><br>
-        <a href="register">
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Registrarse</button>
-        </a>
+        <button type="button" class="btn btn-secondary btn-lg btn-block">Registrarse</button>
         <br>
-        <a href="auth/login">
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Ingresar</button>
-        </a>
+       <a href="{{Route('login')}}" class="btn btn-secondary btn-lg btn-block">
+          Ingresar
+       </a>
     </div>
 </body>
 </html>
