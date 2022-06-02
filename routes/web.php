@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Stmt\Return_;
-
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +32,6 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
+Route::get('/register',[RegisterController::class, 'show']);
+
+Route::post('/register',[RegisterController::class, 'register']);
