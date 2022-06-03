@@ -102,7 +102,7 @@
                             </div>
                             <div class="btnstl">
                                 <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
-                                <a href="#!" class="text-body-bold">Registrarse</a></p>
+                                <a href="{{Route('register')}}" class="text-body-bold">Registrarse</a></p>
                             </div>
                         </div>
 

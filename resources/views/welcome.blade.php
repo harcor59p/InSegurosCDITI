@@ -13,9 +13,11 @@
         <br>
         <h1 style="text-align:center">In-Seguros-CDITI</h1>
         <br><br>
-        <div align="center"><img src="Logo.png" alt="No disponible"></div>
+        <div align="center"><img src="logo.png" alt="No disponible"></div>
         <br><br>
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Registrarse</button>
+        <a href="{{Route('register')}}" class="btn btn-secondary btn-lg btn-block">
+            Registrarse
+         </a>
         <br>
        <a href="{{Route('login')}}" class="btn btn-secondary btn-lg btn-block">
           Ingresar

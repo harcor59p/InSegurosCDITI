@@ -14,14 +14,17 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('menu', function () {
-    return view('Dashboard');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::view('login', 'auth.login');
+Route::post('register',[RegisterController::class, 'register'])->name('register');
+Route::view('register','register');
+
 
 Route::middleware(['auth'])->group(function(){
 
@@ -32,6 +35,3 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
-Route::get('/register',[RegisterController::class, 'show']);
-
-Route::post('/register',[RegisterController::class, 'register']);
