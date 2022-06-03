@@ -66,7 +66,7 @@
         Et quisquam doloremque eveniet cumque eos! Harum, debitis! Quas rerum necessitatibus nulla tenetur libero vitae at ullam quibusdam quisquam magni consectetur, sed, qui repudiandae mollitia, exercitationem id ratione natus accusamus!
         Debitis consequatur minima autem vero porro aspernatur quibusdam obcaecati quasi, dolorem maxime ad molestiae eaque natus molestias culpa placeat maiores dolores magnam beatae. Aspernatur repellat sed omnis officia amet vel.
         Laboriosam, architecto ex aliquid voluptatibus neque tempora sapiente voluptates magnam iusto eveniet explicabo, dolor magni reprehenderit fuga ipsam accusantium excepturi fugiat nobis placeat alias natus! Officia, iste. Necessitatibus, ratione libero?
-        Eaque omnis delectus illo repudiandae! Voluptate non provident doloribus voluptatum blanditiis omnis consequatur, iste impedit earum quis laborum quibusdam fugit libero voluptatem unde amet corporis debitis deleniti officia fuga ipsum.</p>
+        Eaque omnis delectus illo repudiandae! Voluptate non provident doloribus voluptatum blanditiis omnis consequatur, iste impedit earum quis laborum quibusdam fugit libero voluptatem unde amet corporis debitis deleniti officia fuga ipsum......</p>
     </main>
     <script src="js/script.js"></script>
     <footer><h4>Copyright © In-Seguros CDITI 2022. All righte reserved.</h4></footer>
