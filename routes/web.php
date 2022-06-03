@@ -14,8 +14,8 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('menu', function () {
+    return view('Dashboard');
 });
 
 
