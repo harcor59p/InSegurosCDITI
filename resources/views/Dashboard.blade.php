@@ -28,8 +28,8 @@
 
             <a href="#" class="option">
                 <div class="option">
-                    <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Inicio</h4>
+                    <i class="fa-solid fa-users" title="Usuarios"></i>
+                    <h4>Usuarios</h4>
                 </div>
             </a>
 
@@ -58,18 +58,11 @@
     </div>
 
     <main>
-        <h1>Titulo</h1><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
-
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad laboriosam, quibusdam eaque reprehenderit adipisci eum consequatur aut molestias possimus dolorum suscipit, laborum omnis! Nulla, distinctio assumenda? Error nihil modi iusto!
-        Et quisquam doloremque eveniet cumque eos! Harum, debitis! Quas rerum necessitatibus nulla tenetur libero vitae at ullam quibusdam quisquam magni consectetur, sed, qui repudiandae mollitia, exercitationem id ratione natus accusamus!
-        Debitis consequatur minima autem vero porro aspernatur quibusdam obcaecati quasi, dolorem maxime ad molestiae eaque natus molestias culpa placeat maiores dolores magnam beatae. Aspernatur repellat sed omnis officia amet vel.
-        Laboriosam, architecto ex aliquid voluptatibus neque tempora sapiente voluptates magnam iusto eveniet explicabo, dolor magni reprehenderit fuga ipsam accusantium excepturi fugiat nobis placeat alias natus! Officia, iste. Necessitatibus, ratione libero?
-        Eaque omnis delectus illo repudiandae! Voluptate non provident doloribus voluptatum blanditiis omnis consequatur, iste impedit earum quis laborum quibusdam fugit libero voluptatem unde amet corporis debitis deleniti officia fuga ipsum......</p>
+        <h1>Sobre Nosotros</h1><br>
+        <p>Somos una compañia dedicada a la seguridad de personas y vehiculos, poniendonos en el top numero #1 de compañias en todo el pais.</p>
     </main>
     <script src="js/script.js"></script>
-    <footer><h4>Copyright © In-Seguros CDITI 2022. All righte reserved.</h4></footer>
+    <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
 </body>
 </html>
 
