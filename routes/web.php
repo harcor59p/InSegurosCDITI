@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Stmt\Return_;
-
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,13 +19,19 @@ Route::get('/', function () {
 });
 
 
+
 Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::view('login', 'auth.login');
+Route::post('register',[RegisterController::class, 'register'])->name('register');
+Route::view('register','register');
+
 
 Route::middleware(['auth'])->group(function(){
-    
-    //Ruta para ir al Dashboard    
+
+    //Ruta para ir al Dashboard
     //******************* Ruta para Usuarios **********************//
     //
+    Route::view('Dahsboard','Dahsboard');
 
 
 });
