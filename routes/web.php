@@ -27,13 +27,13 @@ Route::view('register','register');
 Route::view('dashboard','dashboard');
 
 
-
 Route::middleware(['auth'])->group(function(){
 
     //Ruta para ir al Dashboard
-    //******************* Ruta para Usuarios **********************//
-    //
-    //Route::view('dashboard','dashboard');
+    Route::view('dashboard', 'dashboard');
+    //******************* Ruta para Usuarios vvvvv **********************//
+
+
 
 
 });
