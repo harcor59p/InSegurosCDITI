@@ -30,8 +30,8 @@ Route::middleware(['auth'])->group(function(){
     //Ruta para ir al Dashboard
     Route::view('dashboard', 'dashboard');
     //******************* Ruta para Usuarios **********************//
-    
-    
+
+
 
 
 });
