@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 /*
@@ -17,6 +18,21 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::get('/register',[RegisterController::class, 'show']);
 
-Route::post('/register',[RegisterController::class, 'register']);
+
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::view('login', 'auth.login');
+Route::post('register',[RegisterController::class, 'register'])->name('register');
+Route::view('register','register');
+
+Route::middleware(['auth'])->group(function(){
+
+    //Ruta para ir al Dashboard
+    Route::view('dashboard', 'dashboard');
+    //******************* Ruta para Usuarios **********************//
+    
+    
+
+
+});
+

@@ -1,47 +1,10 @@
-
-{{-- <div>
-    <div>
-        <h1>REGISTRARSE</h1>
-    </div>
-    <div class="row">
-        <div class="column">
-            <form action="/register" method="POST">
-                @csrf
-                <div>
-                <label for="name">Nombre</label>
-                <input type="text" name="name">
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                <input type="email" name="email">
-                </div>
-                <div>
-                <label for="password">Contraseña</label>
-                <input type="password" name="password">
-                </div>
-                <div>
-                <label for="password_confirmation">Confirmar Contraseña</label>
-                <input type="password" name="password_confirmation">
-                </div>
-                <div class="boton">
-                    <input type="submit" value="registrarse">
-                </div>
-
-            </form>
-        </div>
-    </div>
-    </div> --}}
-
-
-    {{-- register --}}
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="login.css" type="text/ccs" media="screen">
@@ -96,48 +59,59 @@
                     <img src="{{asset('logo.png')}}" class="img-fluid">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form action="{{Route('register')}}" method="POST">
+                    <form action="{{Route('login')}}" method="POST">
                         @csrf
                         <div class="divider d-flex align-items-center mb-4 mt-4">
                             <p class="text-center mx-3 mb-0"></p>
                         </div>
 
                         <div class="text-center">
-                            <h1 class="login p-0 m-0">Registrarse</h1>
+                            <h1 class="login p-0 m-0">Login</h1>
                         </div>
 
                         <div class="divider d-flex align-items-center mb-4 mt-4">
                             <p class="text-center mx-3 mb-0"></p>
                         </div>
-
-                        <!-- Nombre input -->
-                        <div class="form-outline mb-0 pt-2">
-                            <input type="text" id="nombre" name="name" class="form-control form-control-lg" placeholder="Nombre..." required/>
-                            <label class="form-label" for="nombre"></label>
+                        
+                        <!--@if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        @endif-->
+                        @error('email') {{ $message }} @enderror
+                        <!-- Email input -->
+                        <div class="form-outline mb-3 pt-2">
+                            <input type="email" required autofocus value="{{ old('email' )}}" id="user" name="email" class="form-control form-control-lg" placeholder="Usuario..."/>
+                            <label class="form-label" for="form3Example3"></label>
                         </div>
-                        {{-- email input --}}
-                        <div class="form-outline mb-0 pt-2">
-                            <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Email..." required/>
-                            <label class="form-label" for="email"></label>
-                        </div>
+                        @error('password') {{ $message }} @enderror
                         <!-- Password input -->
-                        <div class="form-outline mb-0 pt-2">
-                            <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Contraseña..." required/>
-                            <label class="form-label" for="password"></label>
-                        </div>
-                        {{-- verificar contraseña --}}
-                        <div class="form-outline mb-0 pt-2">
-                            <input type="password" id="password_verify" name="password_verify" class="form-control form-control-lg" placeholder="Confirmar Contraseña..." required/>
-                            <label class="form-label" for="password_verify"></label>
+                        <div class="form-outline mb-0">
+                            <input type="password" required id="password" name="password" class="form-control form-control-lg" placeholder="Contraseña..." />
+                            <label class="form-label" for="form3Example4"></label>
                         </div>
 
-
-                        {{-- boton registrarse --}}
-                        <div class="text-center text-lg-start m-0 p-0">
-                            <div class="mb-2 btn div-loginbtn">
-                                <button type="submit" class="loginbtn text-white btn btn-lg btn-block">Registrarse</button>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0">
+                                <input class="check form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                <label class="remember form-check-label" for="form2Example3">
+                                    <p>Recordar Usuario</p>
+                                </label>
                             </div>
+                            <a href="#!" class="forget text-body-bold mb-3">Olvidó Su Contraseña?</a>
+                        </div>
 
+                        <div class="text-center text-lg-start mt-2 pt-2">
+                            <div class="mb-2 btn div-loginbtn">
+                                <button type="submit" class="loginbtn text-white btn btn-lg btn-block">Login</button>
+                            </div>
+                            <div class="btnstl">
+                                <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
+                                <a href="{{Route('register')}}" class="text-body-bold">Registrarse</a></p>
+                            </div>
                         </div>
 
                         <div class="divider d-flex align-items-center my-4">

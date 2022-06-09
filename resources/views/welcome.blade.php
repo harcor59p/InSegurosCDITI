@@ -6,21 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>In-Seguros-CDITI</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/welcome.css">
 </head>
 <body>
     <div class="container">
         <br>
         <h1 style="text-align:center">In-Seguros-CDITI</h1>
         <br><br>
-        <div align="center"><img src="logo.png" alt=""></div>
+        <div align="center"><img src="logo.png" alt="No disponible"></div>
         <br><br>
-        <form action="" method="post">
-            <button type="button" class="btn btn-dark btn-lg btn-block">Registrarse</button>
-        </form>
+        <a href="{{Route('register')}}" class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7;">
+            Registrarse
+         </a>
         <br>
-        <form action="" method="post">
-            <button type="button" class="btn btn-dark btn-lg btn-block">Ingresar</button>
-        </form>
+       <a href="{{Route('login')}}" class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7;">
+          Ingresar
+       </a>
     </div>
 </body>
 </html>
