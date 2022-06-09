@@ -13,8 +13,8 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('register', function () {
+    return view('register');
 });
 
 Route::get('/register',[RegisterController::class, 'show']);
