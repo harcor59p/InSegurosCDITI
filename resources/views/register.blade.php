@@ -83,6 +83,12 @@
         }
         footer{
             background-color: #4a38a7;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 0.7%;
+            margin: 100;
+            height: 30px;
         }
 
 
