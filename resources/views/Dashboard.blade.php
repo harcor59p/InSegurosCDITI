@@ -60,6 +60,7 @@
     <main>
         <h1>Sobre Nosotros</h1><br>
         <p>Somos una compañia dedicada a la seguridad de personas y vehiculos, poniendonos en el top numero #1 de compañias en todo el pais.</p>
+        
     </main>
     <script src="js/script.js"></script>
     <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
