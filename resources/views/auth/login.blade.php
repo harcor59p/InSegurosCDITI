@@ -72,16 +72,24 @@
                         <div class="divider d-flex align-items-center mb-4 mt-4">
                             <p class="text-center mx-3 mb-0"></p>
                         </div>
-
+                        
+                        <!--@if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        @endif-->
+                        @error('email') {{ $message }} @enderror
                         <!-- Email input -->
                         <div class="form-outline mb-3 pt-2">
-                            <input type="email" id="user" name="email" class="form-control form-control-lg" placeholder="Usuario..." required/>
+                            <input type="email" required autofocus value="{{ old('email' )}}" id="user" name="email" class="form-control form-control-lg" placeholder="Usuario..."/>
                             <label class="form-label" for="form3Example3"></label>
                         </div>
-
+                        @error('password') {{ $message }} @enderror
                         <!-- Password input -->
                         <div class="form-outline mb-0">
-                            <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Contraseña..." required/>
+                            <input type="password" required id="password" name="password" class="form-control form-control-lg" placeholder="Contraseña..." />
                             <label class="form-label" for="form3Example4"></label>
                         </div>
 
@@ -98,7 +106,7 @@
 
                         <div class="text-center text-lg-start mt-2 pt-2">
                             <div class="mb-2 btn div-loginbtn">
-                                <button type="button" class="loginbtn text-white btn btn-lg btn-block">Login</button>
+                                <button type="submit" class="loginbtn text-white btn btn-lg btn-block">Login</button>
                             </div>
                             <div class="btnstl">
                                 <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
@@ -121,22 +129,7 @@
             </div>
             <!-- Copyright -->
 
-            <!-- Right -->
-            <div>
-                <a href="#!" class="text-white me-4">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#!" class="text-white">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            <!-- Right -->
+            
         </footer>
     </section>
 </body>

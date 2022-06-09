@@ -111,29 +111,29 @@
                         </div>
 
                         <!-- Nombre input -->
-                        <div class="form-outline mb-3 pt-2">
+                        <div class="form-outline mb-0 pt-2">
                             <input type="text" id="nombre" name="name" class="form-control form-control-lg" placeholder="Nombre..." required/>
                             <label class="form-label" for="nombre"></label>
                         </div>
                         {{-- email input --}}
-                        <div class="form-outline mb-3 pt-2">
+                        <div class="form-outline mb-0 pt-2">
                             <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Email..." required/>
                             <label class="form-label" for="email"></label>
                         </div>
                         <!-- Password input -->
-                        <div class="form-outline mb-3 pt2">
+                        <div class="form-outline mb-0 pt-2">
                             <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Contraseña..." required/>
                             <label class="form-label" for="password"></label>
                         </div>
                         {{-- verificar contraseña --}}
-                        <div class="form-outline mb-3 pt2">
-                            <input type="password" id="password_verify" name="password_verify" class="form-control form-control-lg" placeholder="Verificar Contraseña..." required/>
+                        <div class="form-outline mb-0 pt-2">
+                            <input type="password" id="password_verify" name="password_verify" class="form-control form-control-lg" placeholder="Confirmar Contraseña..." required/>
                             <label class="form-label" for="password_verify"></label>
                         </div>
 
 
                         {{-- boton registrarse --}}
-                        <div class="text-center text-lg-start mt-2 pt-2">
+                        <div class="text-center text-lg-start m-0 p-0">
                             <div class="mb-2 btn div-loginbtn">
                                 <button type="submit" class="loginbtn text-white btn btn-lg btn-block">Registrarse</button>
                             </div>
@@ -155,22 +155,7 @@
             </div>
             <!-- Copyright -->
 
-            <!-- Right -->
-            <div>
-                <a href="#!" class="text-white me-4">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#!" class="text-white me-4">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#!" class="text-white">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            <!-- Right -->
+            
         </footer>
     </section>
 </body>

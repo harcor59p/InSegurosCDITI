@@ -25,13 +25,13 @@ Route::view('login', 'auth.login');
 Route::post('register',[RegisterController::class, 'register'])->name('register');
 Route::view('register','register');
 
-
 Route::middleware(['auth'])->group(function(){
 
     //Ruta para ir al Dashboard
+    Route::view('dashboard', 'dashboard');
     //******************* Ruta para Usuarios **********************//
-    //
-    Route::view('Dahsboard','Dahsboard');
+    
+    
 
 
 });
