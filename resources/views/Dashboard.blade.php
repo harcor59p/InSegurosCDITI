@@ -10,18 +10,20 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
-<body id="body">
-    <header>
+<header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
     </header>
-
+<body id="body">
     <div class="menu__side" id="menu_side">
 
         <div class="name__page">
             <img src="/img/logoMenuRemov.png" alt="" width="40px" height="30px">
-            <h4>InSegurosCDITI</h4>
+            <h4>InSegurosCDITI</h4><br>
+            <div class="icon__menu_t" id="menu_t">
+                <i class="fas fa-bars" id="menu_t"></i>
+            </div>
         </div>
 
         <div class="options__menu">
@@ -58,9 +60,45 @@
     </div>
 
     <main>
-        <h1>Sobre Nosotros</h1><br>
-        <p>Somos una compañia dedicada a la seguridad de personas y vehiculos, poniendonos en el top numero #1 de compañias en todo el pais.</p>
-        
+        <div class="container">
+            <div class="card">
+                <figure>
+                    <img src="/img/zeguros.jpg" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>prueba</h3>
+                    <p>prueba</p>
+                    <a href="#">Leer mas</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="card">
+                <figure>
+                    <img src="/img/zeguros.jpg" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>prueba</h3>
+                    <p>prueba</p>
+                    <a href="#">Leer mas</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="card">
+                <figure>
+                    <img src="/img/zeguros.jpg" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>prueba</h3>
+                    <p>prueba</p>
+                    <a href="#">Leer mas</a>
+                </div>
+            </div>
+
+        </div>
     </main>
     <script src="js/script.js"></script>
     <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
