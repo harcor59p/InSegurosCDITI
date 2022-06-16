@@ -10,6 +10,7 @@
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+<!--lateral izquierdo del menu opciones -->
 <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -58,47 +59,45 @@
         </div>
 
     </div>
+    <!--final del lateral -->
 
-    <main>
-        <div class="container">
-            <div class="card">
-                <figure>
-                    <img src="/img/zeguros.jpg" alt="">
-                </figure>
-                <div class="contenido">
-                    <h3>prueba</h3>
-                    <p>prueba</p>
-                    <a href="#">Leer mas</a>
-                </div>
-            </div>
-
+    <main> 	<!--estas son las Tarjetas-->
+        <div class="title-cards">
+            <h2>Nuestros servicios</h2>
         </div>
-        <div class="container">
-            <div class="card">
-                <figure>
-                    <img src="/img/zeguros.jpg" alt="">
-                </figure>
-                <div class="contenido">
-                    <h3>prueba</h3>
-                    <p>prueba</p>
-                    <a href="#">Leer mas</a>
-                </div>
-            </div>
-
-        </div>
-        <div class="container">
-            <div class="card">
-                <figure>
-                    <img src="/img/zeguros.jpg" alt="">
-                </figure>
-                <div class="contenido">
-                    <h3>prueba</h3>
-                    <p>prueba</p>
-                    <a href="#">Leer mas</a>
-                </div>
-            </div>
-
-        </div>
+<div class="container-card">
+<div class="card">
+<figure>
+    <img src="#">
+</figure>
+<div class="contenido-card">
+    <h3>pruebas</h3>
+    <p>PRUEBA DE CARD</p>
+    <a href="#">Leer Màs</a>
+</div>
+</div>
+<div class="card">
+<figure>
+    <img src="#">
+</figure>
+<div class="contenido-card">
+    <h3>pruebas</h3>
+    <p>PRUEBA DE CARD</p>
+    <a href="#">Leer Màs</a>
+</div>
+</div>
+<div class="card">
+<figure>
+    <img src="#">
+</figure>
+<div class="contenido-card">
+    <h3>pruebas</h3>
+    <p>PRUEBA DE CARD</p>
+    <a href="#">Leer Màs</a>
+</div>
+</div>
+</div>
+<!--Fin   Tarjetas-->
     </main>
     <script src="js/script.js"></script>
     <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
