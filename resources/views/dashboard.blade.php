@@ -68,31 +68,31 @@
 <div class="container-card">
 <div class="card">
 <figure>
-    <img src="#">
+    <img src="/img/zeguros.jpg">
 </figure>
 <div class="contenido-card">
-    <h3>pruebas</h3>
-    <p>PRUEBA DE CARD</p>
+    <h3>Que Beneficios tienen los seguros?</h3>
+    <p>Encontraras un detallado listado de beneficios de asegurarte a ti a tu familia y a tus bienes.</p>
     <a href="#">Leer Màs</a>
 </div>
 </div>
 <div class="card">
 <figure>
-    <img src="#">
+    <img src="/img/zeguros.jpg">
 </figure>
 <div class="contenido-card">
-    <h3>pruebas</h3>
-    <p>PRUEBA DE CARD</p>
+    <h3>Como obtener los beneficios de mis seguros?</h3>
+    <p>Tendrar en tus manos la información necesaria para poder disfrutar los beneficios de los seguros adquiridos en nuestra compañia.</p>
     <a href="#">Leer Màs</a>
 </div>
 </div>
 <div class="card">
 <figure>
-    <img src="#">
+    <img src="/img/zeguros.jpg">
 </figure>
 <div class="contenido-card">
-    <h3>pruebas</h3>
-    <p>PRUEBA DE CARD</p>
+    <h3>Que entidades nos regulan?</h3>
+    <p>Aqui encontraras como funciona el sistema de seguros en colombia y q ue entidades lo regulan.</p>
     <a href="#">Leer Màs</a>
 </div>
 </div>
