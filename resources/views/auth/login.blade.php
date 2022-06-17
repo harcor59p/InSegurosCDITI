@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - InSegurosCDITI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="login.css" type="text/ccs" media="screen">
-    <style>
+    <link href="{{asset('css/login.css')}}" rel="stylesheet">
+    {{-- <style>
         .divider:after,
         .divider:before {
         content: "";
@@ -49,7 +49,7 @@
         }
 
 
-    </style>
+    </style> --}}
 </head>
 <body>
     <section class="vh-100">
@@ -72,7 +72,7 @@
                         <div class="divider d-flex align-items-center mb-4 mt-4">
                             <p class="text-center mx-3 mb-0"></p>
                         </div>
-                        
+
                         <!--@if($errors->any())
                             <ul>
                                 @foreach($errors->all() as $error)
@@ -129,7 +129,7 @@
             </div>
             <!-- Copyright -->
 
-            
+
         </footer>
     </section>
 </body>
