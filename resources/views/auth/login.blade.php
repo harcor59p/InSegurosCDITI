@@ -106,7 +106,7 @@
 
                         <div class="text-center text-lg-start mt-2 pt-2">
                             <div class="mb-2 btn div-loginbtn">
-                                <button type="submit" class="loginbtn text-white btn btn-lg btn-block">Login</button>
+                                <button type="submit" onclick="saveUserName()" class="loginbtn text-white btn btn-lg btn-block">Login</button>
                             </div>
                             <div class="btnstl">
                                 <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
@@ -132,5 +132,11 @@
 
         </footer>
     </section>
+    <script>
+        function saveUserName(){
+            var userName = document.getElementById('user').value;
+            localStorage.setItem('userName', userName);
+        }
+    </script>
 </body>
 </html>

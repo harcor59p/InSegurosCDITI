@@ -8,59 +8,79 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+<!--lateral izquierdo del menu opciones -->
 <header>
     <div class="icon__menu">
         <i class="fas fa-bars" id="btn_open"></i>
     </div>
-</header>
-<body id="body">
-<div class="menu__side" id="menu_side">
-
-    <div class="name__page">
-        <img src="{{asset('img/logoMenuRemov.png')}}" alt="" width="40px" height="30px">
-        <h4>InSegurosCDITI</h4><br>
-        <div class="icon__menu_t" id="menu_t">
-            <i class="fas fa-bars" id="menu_t"></i>
+    <div style="color: #FFFFFF;width: 100%;text-align: right;margin-right:100px;">
+        <span id="txt_user_name">Anónimo</span>
+         <a href="">
+            <div class="destroy_session">
+         <span style="margin: 15px;color: #ff564a;">
+            <i class="fa-solid fa-power-off" title="cerrar session"></i>
+         </a>
+        </div>
         </div>
     </div>
+</header>
+<body id="body">
+    <div class="menu__side" id="menu_side">
 
-    <div class="options__menu">
-
-        <a href="#" class="option">
-            <div class="option">
-                <i class="fa-solid fa-users" title="Usuarios"></i>
-                <h4>Usuarios</h4>
+        <div class="name__page">
+            <img src="/img/logoMenuRemov.png" alt="" width="40px" height="30px">
+            <h4>InSegurosCDITI</h4><br>
+            <div class="icon__menu_t" id="menu_t">
+                <i class="fas fa-bars" id="menu_t"></i>
             </div>
-        </a>
+        </div>
 
-        <a href="#">
-            <div class="option">
-                <i class="fa-solid fa-address-book" title="Cotizar SOAT"></i>
-                <h4>Cotizar SOAT</h4>
-            </div>
-        </a>
+        <div class="options__menu">
 
-        <a href="#">
-            <div class="option">
-                <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguros De Vida Personas"></i>
-                <h4>Cotizar Seguros De Vida Personas</h4>
-            </div>
-        </a>
+            <a href="#" class="option">
+                <div class="option">
+                    <i class="fa-solid fa-users" title="Usuarios"></i>
+                    <h4>Usuarios</h4>
+                </div>
+            </a>
 
-        <a href="#">
-            <div class="option">
-                <i class="fa-solid fa-car-burst" title="Cotizar Seguros Vehiculo"></i>
-                <h4>Cotizar Seguros Vehiculo</h4>
-            </div>
-        </a>
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-address-book" title="Cotizar SOAT"></i>
+                    <h4>Cotizar SOAT</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguros De Vida Personas"></i>
+                    <h4>Cotizar Seguros De Vida Personas</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-car-burst" title="Cotizar Seguros Vehiculo"></i>
+                    <h4>Cotizar Seguros Vehiculo</h4>
+                </div>
+            </a>
+        </div>
+
     </div>
-
-</div>
 <br>
 @yield('main')
 
 <script src="{{asset('js/script.js')}}"></script>
 <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
+
+    @if(Auth::check())
+    <script>
+        var userName = "{{ Auth::user()->name }}";
+        var txt_user_name = document.getElementById("txt_user_name");
+
+        txt_user_name.innerHTML = "" + userName;
+    </script>
+    @endif
 
 </body>
 </html>
