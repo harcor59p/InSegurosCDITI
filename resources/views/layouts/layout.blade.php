@@ -37,12 +37,25 @@
 
         <div class="options__menu">
 
+
+            @if (auth()->user()->rol == 'Administrador')
+
             <a href="#" class="option">
                 <div class="option">
                     <i class="fa-solid fa-users" title="Usuarios"></i>
                     <h4>Usuarios</h4>
                 </div>
             </a>
+
+            @endif
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-person" title="Clientes"></i>
+                    <h4>Clientes</h4>
+                </div>
+            </a>
+
 
             <a href="#">
                 <div class="option">

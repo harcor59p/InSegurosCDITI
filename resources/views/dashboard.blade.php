@@ -106,7 +106,7 @@
 <!--Fin   Tarjetas-->
 
     {{-- <script src="js/script.js"></script>
-    <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer> --}}
-</body>
-</html>
+    {{-- <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer> --}}
+{{-- </body>
+</html> --}}
 
