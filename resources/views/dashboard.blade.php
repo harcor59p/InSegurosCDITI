@@ -66,7 +66,7 @@
 @section('titulo', 'Menú Pincipal')
 
 @section('main')
-
+<br><br>
         <div class="title-cards">
             <h2>Nuestros servicios</h2>
         </div>
