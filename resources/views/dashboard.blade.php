@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>In-Seguros Menú</title>
+    <title>Menú Pincipal  - InSegurosCDITI</title>
 
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-</head>
+</head> --}}
 <!--lateral izquierdo del menu opciones -->
-<header>
+{{-- <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
@@ -58,10 +58,15 @@
             </a>
         </div>
 
-    </div>
+    </div> --}}
     <!--final del lateral -->
 
-    <main> 	<!--estas son las Tarjetas-->
+@extends('layouts.layout')
+
+@section('titulo', 'Menú Pincipal')
+
+@section('main')
+
         <div class="title-cards">
             <h2>Nuestros servicios</h2>
         </div>
@@ -97,10 +102,11 @@
 </div>
 </div>
 </div>
+@endsection
 <!--Fin   Tarjetas-->
-    </main>
-    <script src="js/script.js"></script>
-    <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer>
+
+    {{-- <script src="js/script.js"></script>
+    <footer><h6>Copyright © In-Seguros CDITI 2022. All righte reserved.</h6></footer> --}}
 </body>
 </html>
 

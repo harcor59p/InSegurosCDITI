@@ -1,0 +1,39 @@
+
+        .divider:after,
+        .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+        }
+        .h-custom {
+        height: calc(100% - 73px);
+        }
+        @media (max-width: 450px) {
+        .h-custom {
+        height: 100%;
+        }
+        }
+        .check{
+            background-color: #4a38a7;
+        }
+        .login ,.remember, .forget, .Copy{
+            font-weight: bold;
+        }
+        .loginbtn{
+            font-weight: bold;
+            background-color:#4a38a7;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+        .div-loginbtn{
+            display: flex;
+            justify-content: center;
+        }
+        .btnstl{
+            display: flex;
+            justify-content: center;
+        }
+        footer{
+            background-color: #4a38a7;
+        }
