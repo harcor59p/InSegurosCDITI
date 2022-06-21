@@ -66,14 +66,49 @@
 @section('titulo', 'Menú Pincipal')
 
 @section('main')
-<br><br>
+
+@if (auth()->user()->rol == 'Administrador')
+    <div class="container">
+        <h2 class="title-cards">Indicadores</h2>
+        <br>
+        <div class="container-card">
+            <div class="card">
+                <div class="contenido-card">
+                    <h3 class="card-title">No. Usuarios</h3>
+                    <p class="card-text">
+                        {{json_encode($cant_users,TRUE)}}
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="contenido-card">
+                    <h3 class="card-title">No. Cotizaciones Vehiculos</h3>
+                    <p class="card-text">Content</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="contenido-card">
+                    <h3 class="card-title">No. Cotizaciones SOAT</h3>
+                    <p class="card-text">Content</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="contenido-card">
+                    <h3 class="card-title">No. Cotizaciones Seguro de vida Personal</h3>
+                    <p class="card-text">Content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
+<br>
         <div class="title-cards">
             <h2>Nuestros servicios</h2>
         </div>
 <div class="container-card">
 <div class="card">
 <figure>
-    <img src="/img/zeguros.jpg">
+    <img src="{{asset('/img/zeguros.jpg')}}">
 </figure>
 <div class="contenido-card">
     <h3>Que Beneficios tienen los seguros?</h3>
@@ -83,7 +118,7 @@
 </div>
 <div class="card">
 <figure>
-    <img src="/img/zeguros.jpg">
+    <img src="{{asset('/img/zeguros.jpg')}}">
 </figure>
 <div class="contenido-card">
     <h3>Como obtener los beneficios de mis seguros?</h3>
@@ -93,7 +128,7 @@
 </div>
 <div class="card">
 <figure>
-    <img src="/img/zeguros.jpg">
+    <img src="{{asset('/img/zeguros.jpg')}}">
 </figure>
 <div class="contenido-card">
     <h3>Que entidades nos regulan?</h3>
