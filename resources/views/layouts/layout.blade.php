@@ -21,8 +21,7 @@
          <span style="margin: 15px;color: #ff564a;">
             <i class="fa-solid fa-power-off" title="cerrar session"></i>
          </a>
-        </div>
-        </div>
+            </div>
     </div>
 </header>
 <body id="body">
