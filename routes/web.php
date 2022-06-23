@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
@@ -26,6 +27,7 @@ Route::view('login', 'auth.login');
 Route::post('register',[RegisterController::class, 'register'])->name('register');
 Route::view('register','register');
 Route::put('logout', [AuthController::class, 'logout'])->name('logout');
+Route::resource('/clientes', ClienteController::class);
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 

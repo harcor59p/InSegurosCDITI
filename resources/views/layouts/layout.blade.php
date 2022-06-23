@@ -8,6 +8,7 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> --}}
 </head>
 <!--lateral izquierdo del menu opciones -->
 <header>
@@ -47,16 +48,16 @@
                     <i class="fa-solid fa-users" title="Usuarios"></i>
                     <h4>Usuarios</h4>
                 </div>
-            </a>
+                </a>
 
             @endif
 
-            <a href="#">
+            <a href="/clientes">
                 <div class="option">
                     <i class="fa-solid fa-person" title="Clientes"></i>
                     <h4>Clientes</h4>
                 </div>
-            </a>
+                <span class="sr-only">(current)</span></a>
 
 
             <a href="#">
