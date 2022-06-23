@@ -14,14 +14,16 @@
     <div class="icon__menu">
         <i class="fas fa-bars" id="btn_open"></i>
     </div>
-    <div style="color: #FFFFFF;width: 100%;text-align: right;margin-right:100px;">
+    <form method="post" action="{{Route('logout')}}" style="color: #FFFFFF;width: 100%;text-align: right;margin-right:100px;">
+        @method('put')
+        @csrf
         <span id="txt_user_name">Anónimo</span>
-         <a href="">
-            <div class="destroy_session">
+         <button type="submit" class="destroy_session">
+            <div >
          <span style="margin: 15px;color: #ff564a;">
             <i class="fa-solid fa-power-off" title="cerrar session"></i>
-         </a>
-            </div>
+         </button>
+            </form>
     </div>
 </header>
 <body id="body">

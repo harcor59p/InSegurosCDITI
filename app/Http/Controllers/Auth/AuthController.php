@@ -34,4 +34,11 @@ class AuthController extends Controller
             'password' => 'La Contraseña proporcionada es Incorrecta'
         ]);
     }
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 }

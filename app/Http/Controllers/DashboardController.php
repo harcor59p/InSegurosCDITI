@@ -17,8 +17,7 @@ class DashboardController extends Controller
     {
         //
         $usuarios = User::all();
-        $sql = 'SELECT COUNT(*) FROM users';
-        $cant_users = DB::select($sql);
+        $cant_users = $usuarios->count();
         return view('dashboard' , compact('cant_users')) ;
 
     }

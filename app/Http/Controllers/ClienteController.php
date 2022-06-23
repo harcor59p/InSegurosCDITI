@@ -15,7 +15,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientecito = Cliente::all();
-        return view('clientes');
+        return view('/cotizaciones/clientes');
     }
 
     /**
