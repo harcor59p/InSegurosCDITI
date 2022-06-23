@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SoatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,12 @@ Route::view('login', 'auth.login');
 Route::post('register',[RegisterController::class, 'register'])->name('register');
 Route::view('register','register');
 Route::view('dashboard','dashboard');
+
+
+// route::get('soat',[SoatController::class,'placa'])->name('soat');
+
+
+
 
 
 Route::middleware(['auth'])->group(function(){
