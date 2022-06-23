@@ -7,22 +7,23 @@
     <title>InSegurosCDITI - @yield('titulo')</title>
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
 </head>
 <!--lateral izquierdo del menu opciones -->
 <header>
     <div class="icon__menu">
         <i class="fas fa-bars" id="btn_open"></i>
     </div>
-    <div style="color: #FFFFFF;width: 100%;text-align: right;margin-right:100px;">
+    <form method="post" action="{{Route('logout')}}" style="color: #FFFFFF;width: 100%;text-align: right;margin-right:100px;">
+        @method('put')
+        @csrf
         <span id="txt_user_name">Anónimo</span>
-         <a href="">
-            <div class="destroy_session">
+         <button type="submit" class="destroy_session">
+            <div >
          <span style="margin: 15px;color: #ff564a;">
             <i class="fa-solid fa-power-off" title="cerrar session"></i>
-         </a>
-        </div>
-        </div>
+         </button>
+            </form>
     </div>
 </header>
 <body id="body">
@@ -38,12 +39,25 @@
 
         <div class="options__menu">
 
+
+            @if (auth()->user()->rol == 'Administrador')
+
             <a href="#" class="option">
                 <div class="option">
                     <i class="fa-solid fa-users" title="Usuarios"></i>
                     <h4>Usuarios</h4>
                 </div>
             </a>
+
+            @endif
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-person" title="Clientes"></i>
+                    <h4>Clientes</h4>
+                </div>
+            </a>
+
 
             <a href="#">
                 <div class="option">
