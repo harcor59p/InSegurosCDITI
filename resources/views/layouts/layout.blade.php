@@ -82,7 +82,6 @@
         </div>
 
     </div>
-<br>
 @yield('main')
 
 <script src="{{asset('js/script.js')}}"></script>

@@ -274,3 +274,10 @@ footer{
     }
 }
 
+.container .container-card .card .contenido-card .card-text {
+    line-height: 1.8;
+	color: #000000;
+	font-size: 32px;
+	margin-bottom: 5px;
+}
+
