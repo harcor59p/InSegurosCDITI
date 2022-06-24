@@ -102,6 +102,28 @@
     </div>
 @endif
 <br>
+         <form class="form">
+            <h2 class="form__title">Formulario</h2>
+            <div class="form__container">
+                <div class="form__group">
+                    <input type="text" id="name" class="form__input" placeholder=" " >
+                    <label for="name" class="form__label">nombre</label>
+                    <span class="form__line"></span>
+                </div>
+                <div class="form__group">
+                    <input type="text" id="user" class="form__input" placeholder=" " >
+                    <label for="user" class="form__label">usuario</label>
+                    <span class="form__line"></span>
+                </div>
+                <div class="form__group">
+                    <input type="text" id="password" class="form__input" placeholder=" " >
+                    <label for="password" class="form__label">contraseña</label>
+                    <span class="form__line"></span>
+                </div>
+                <input type="submit" class="form__submit" value="entrar">
+            </div>
+         </form>
+
         <div class="title-cards">
             <h2>Nuestros servicios</h2>
         </div>

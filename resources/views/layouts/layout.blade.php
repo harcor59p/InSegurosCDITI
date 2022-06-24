@@ -21,9 +21,9 @@
          <button type="submit" class="destroy_session">
             <div >
          <span style="margin: 15px;color: #ff564a;">
-            <i class="fa-solid fa-power-off" title="cerrar session"></i>
+            <i class="fa-solid fa-power-off" title="cerrar sesion"></i>
          </button>
-            </form>
+    </form>
     </div>
 </header>
 <body id="body">
