@@ -13,6 +13,7 @@ var icon_menu_t = document.getElementById("menu_t");
         body.classList.toggle("btn_open");
         side_menu.classList.toggle("menu__side_move");
         icon_menu_t.classList.toggle("menu_t");
+
     }
 
 //Si el ancho de la página es menor a 760px, oculars el menú al recargar la página
