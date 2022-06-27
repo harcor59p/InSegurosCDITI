@@ -75,7 +75,7 @@
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Usuarios</h3>
-                    <br><br>
+                    <br><br><br><br>
                     <p class="card-text">
                         {{json_encode($cant_users,TRUE)}}
                     </p>
