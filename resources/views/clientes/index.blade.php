@@ -26,6 +26,25 @@
         <p>{{\Session::get('destroy')}}</p>
     </div>
     @endif
+    <div class="row">
+
+        <div class="col-xl-12">
+            <form action="{{route('clientes.index')}}" method="get">
+                <div class="form-row">
+                    <div class="col-sm-7">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#clienteModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Cliente</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="texto" value="{{$texto}}">
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" class="btn btn-secondary" style="background-color: #4a38a7" value="Buscar">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 
     <form action="{{Route('clientes.store')}}" method="post">
         @csrf
@@ -39,8 +58,7 @@
             @endforeach
         @endif
 
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#clienteModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Cliente</button>
-<!-- Modal de creacion de Clientes -->
+        <!-- Modal de creacion de Clientes -->
             <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -102,7 +120,7 @@
             <th>{{$cliente->nombre}}</th>
             <th>{{$cliente->email}}</th>
             <th>{{$cliente->telefono}}</th>
-            <th>{{$cliente->updated_ad}}</th>
+            <th>{{$cliente->updated_at}}</th>
             <th>
                 <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#editModal{{$cliente->id}}">Editar  <i class="fa-solid fa-pen-to-square"></i></i></button>
                 <!-- Modal de edición de Clientes -->

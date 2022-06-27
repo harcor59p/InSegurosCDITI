@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -12,10 +13,20 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientecito = Cliente::orderBy('id')->paginate(6);
-        return view('clientes.index' , compact('clientecito'));
+        $texto = trim($request->get('texto'));
+        $clientecito=DB::table('clientes')
+                                ->select('id', 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
+                                ->where('id','LIKE' , '%'.$texto.'%')
+                                ->orwhere('identificacion','LIKE' , '%'.$texto.'%')
+                                ->orwhere('nombre','LIKE' , '%'.$texto.'%')
+                                ->orwhere('email','LIKE' , '%'.$texto.'%')
+                                ->orwhere('telefono','LIKE' , '%'.$texto.'%')
+                                ->orderBy('id')
+                                ->paginate(4);
+        //$clientecito = Cliente::orderBy('id')->paginate(6);
+        return view('clientes.index' , compact('clientecito','texto'));
     }
 
     /**
