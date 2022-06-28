@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class VehiculosController extends Controller
 {
@@ -41,7 +43,12 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-        return view('cotizaciones-vehiculos.create');
+        $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
+        $datosvehi_array = $datosvehi->json();
+
+        $clientecito = Cliente::all();
+
+        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array'));
     }
 
     /**
