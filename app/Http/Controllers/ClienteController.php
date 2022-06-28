@@ -17,7 +17,7 @@ class ClienteController extends Controller
     {
         $texto = trim($request->get('texto'));
         $clientecito=DB::table('clientes')
-                                ->select('id', 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
+                                ->select('id' , 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
                                 ->where('id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('nombre','LIKE' , '%'.$texto.'%')
@@ -36,7 +36,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**

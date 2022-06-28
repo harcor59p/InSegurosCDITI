@@ -5,6 +5,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VehiculosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,12 +24,11 @@ Route::get('/', function () {
 
 
 
-Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::view('login', 'auth.login');
-Route::post('register',[RegisterController::class, 'register'])->name('register');
-Route::view('register','register');
-Route::put('logout', [AuthController::class, 'logout'])->name('logout');
-Route::resource('/clientes', ClienteController::class);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::view('/login', 'auth.login');
+Route::post('/register',[RegisterController::class, 'register'])->name('register');
+Route::view('/register','register');
+Route::put('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -36,7 +37,10 @@ Route::middleware(['auth'])->group(function(){
 
     //Ruta para ir al Dashboard
     //Route::view('dashboard','dashboard');
-    Route::resource('dashboard', DashboardController::class);
+    Route::resource('/dashboard', DashboardController::class);
+    Route::resource('/clientes', ClienteController::class);
+    Route::resource('/vehiculos', VehiculosController::class);
+    //Route::resource('/vehiculos', ClienteController::class);
     //******************* Ruta para Usuarios **********************//
 
 

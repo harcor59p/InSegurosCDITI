@@ -83,7 +83,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="/vehiculos">
                 <div class="option">
                     <i class="fa-solid fa-car-burst" title="Cotizar Seguros Vehiculo"></i>
                     <h4>Cotizar Seguros Vehiculo</h4>

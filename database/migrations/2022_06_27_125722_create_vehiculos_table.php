@@ -15,8 +15,9 @@ class CreateVehiculosTable extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            
+            $table->bigInteger('cliente_id')->unsigned();
+            $table->date('fecha_cot');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->string('placa',6);
             $table->double('Modelo');
             $table->string('serie',1);
@@ -24,6 +25,7 @@ class CreateVehiculosTable extends Migration
             $table->string('marca',20);
             $table->string('color',20);
             $table->enum('servicio',['Particular' , 'Publico'])->default('Particular');
+            $table->double('vr_serg_vehi');
             $table->timestamps();
         });
     }

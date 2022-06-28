@@ -85,7 +85,9 @@
                 <div class="contenido-card">
                     <h3 class="card-title">No. Cotizaciones Vehiculos</h3>
                     <br>
-                    <p class="card-text">Content</p>
+                    <p class="card-text">
+                        {{json_encode($cant_cot_vehi,TRUE)}}
+                    </p>
                 </div>
             </div>
             <div class="card">

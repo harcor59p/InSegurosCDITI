@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VehiculosController extends Controller
 {
@@ -11,9 +13,25 @@ class VehiculosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        $texto = trim($request->get('texto'));
+        $vehiculo=DB::table('vehiculos')
+                                ->join('clientes' , 'vehiculos.cliente_id' , '=' , 'clientes.id' )
+                                ->select('vehiculos.id', 'vehiculos.fecha_cot' , 'clientes.identificacion', 'clientes.nombre' , 'vehiculos.placa', 'vehiculos.modelo' , 'vehiculos.cilindraje' , 'vehiculos.marca' , 'vehiculos.vr_serg_vehi' )
+                                ->where('vehiculos.id','LIKE' , '%'.$texto.'%')
+                                ->orwhere('clientes.identificacion','LIKE' , '%'.$texto.'%')
+                                ->orwhere('clientes.nombre','LIKE' , '%'.$texto.'%')
+                                ->orwhere('vehiculos.placa','LIKE' , '%'.$texto.'%')
+                                ->orwhere('vehiculos.modelo','LIKE' , '%'.$texto.'%')
+                                ->orwhere('vehiculos.cilindraje','LIKE' , '%'.$texto.'%')
+                                ->orwhere('vehiculos.marca','LIKE' , '%'.$texto.'%')
+                                ->orderBy('vehiculos.id')
+                                ->paginate(4);
+        //$clientecito = Cliente::orderBy('id')->paginate(6);
+        return view('cotizaciones-vehiculos.index' , compact('vehiculo','texto'));
+
     }
 
     /**
@@ -23,7 +41,7 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-        //
+        return view('cotizaciones-vehiculos.create');
     }
 
     /**
@@ -34,7 +52,13 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehiculo = new vehiculo();
+        // $vehiculo->identificacion = $request->input('identificacion');
+        // $vehiculo->nombre = $request->input('nombre');
+        // $vehiculo->email = $request->input('email');
+        // $vehiculo->telefono = $request->input('telefono');
+        $vehiculo->save();
+        return redirect('cotizaciones-vehiculos.index')->with('store','Cotización Creada Satisfactoriamente');
     }
 
     /**

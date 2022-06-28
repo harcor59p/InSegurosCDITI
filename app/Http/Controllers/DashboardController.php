@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,9 @@ class DashboardController extends Controller
         //
         $usuarios = User::all();
         $cant_users = $usuarios->count();
-        return view('dashboard' , compact('cant_users')) ;
+        $vehiculos = vehiculo::all();
+        $cant_cot_vehi = $vehiculos->count();
+        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi')) ;
 
     }
 
