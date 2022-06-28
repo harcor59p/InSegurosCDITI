@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetController;
@@ -34,6 +35,7 @@ Route::post('newPassword', [NewPasswordController::class, 'store'])->name('nueva
 Route::post('register',[RegisterController::class, 'register'])->name('register');
 Route::view('register','register');
 Route::put('logout', [AuthController::class, 'logout'])->name('logout');
+Route::resource('/clientes', ClienteController::class);
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 

@@ -75,6 +75,7 @@
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Usuarios</h3>
+                    <br><br><br><br>
                     <p class="card-text">
                         {{json_encode($cant_users,TRUE)}}
                     </p>
@@ -83,12 +84,14 @@
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Cotizaciones Vehiculos</h3>
+                    <br>
                     <p class="card-text">Content</p>
                 </div>
             </div>
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Cotizaciones SOAT</h3>
+                    <br>
                     <p class="card-text">Content</p>
                 </div>
             </div>
@@ -118,7 +121,7 @@
 </div>
 <div class="card">
 <figure>
-    <img src="{{asset('/img/zeguros.jpg')}}">
+    <img src="{{asset('/img/imagen_2.png')}}">
 </figure>
 <div class="contenido-card">
     <h3>Como obtener los beneficios de mis seguros?</h3>
@@ -128,7 +131,7 @@
 </div>
 <div class="card">
 <figure>
-    <img src="{{asset('/img/zeguros.jpg')}}">
+    <img src="{{asset('/img/imagen_3.png')}}">
 </figure>
 <div class="contenido-card">
     <h3>Que entidades nos regulan?</h3>
@@ -137,6 +140,8 @@
 </div>
 </div>
 </div>
+<br>
+<br>
 @endsection
 <!--Fin   Tarjetas-->
 

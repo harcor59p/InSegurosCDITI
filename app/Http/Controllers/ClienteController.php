@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -12,10 +13,20 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientecito = Cliente::all();
-        return view('/cotizaciones/clientes');
+        $texto = trim($request->get('texto'));
+        $clientecito=DB::table('clientes')
+                                ->select('id', 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
+                                ->where('id','LIKE' , '%'.$texto.'%')
+                                ->orwhere('identificacion','LIKE' , '%'.$texto.'%')
+                                ->orwhere('nombre','LIKE' , '%'.$texto.'%')
+                                ->orwhere('email','LIKE' , '%'.$texto.'%')
+                                ->orwhere('telefono','LIKE' , '%'.$texto.'%')
+                                ->orderBy('id')
+                                ->paginate(4);
+        //$clientecito = Cliente::orderBy('id')->paginate(6);
+        return view('clientes.index' , compact('clientecito','texto'));
     }
 
     /**
@@ -36,7 +47,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clientecito = new Cliente();
+        $clientecito->identificacion = $request->input('identificacion');
+        $clientecito->nombre = $request->input('nombre');
+        $clientecito->email = $request->input('email');
+        $clientecito->telefono = $request->input('telefono');
+        $clientecito->save();
+        return redirect('/clientes')->with('store','Cliente Creado Satisfactoriamente');
     }
 
     /**
@@ -70,7 +87,19 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $clientecito = Cliente::find($id);
+
+        $clientecito->identificacion = $request->identificacion;
+        $clientecito->nombre = $request->nombre;
+        $clientecito->email = $request->email;
+         $clientecito->telefono = $request->telefono;
+
+        $clientecito->save();
+
+        return redirect('/clientes')->with('update','Cliente Editado Satisfactoriamente');
+
+
+
     }
 
     /**
@@ -81,6 +110,7 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cliente::destroy($id);
+        return redirect('/clientes')->with('destroy','Cliente Eliminado');
     }
 }

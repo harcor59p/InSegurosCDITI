@@ -353,9 +353,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>Este enlace de restablecimiento de contraseña caducará en 60 minutos.                            
-                            Saludos,
-                            Laravel</p>
+                        <p>Este enlace de restablecimiento de contraseña caducará en 60 minutos.</p>
                         <p>Si no solicitó un restablecimiento de contraseña, ignore este correo, no se requiere ninguna otra acción.</p>
                         <p>Mantente seguro, InSeguros CDITI.</p>
                       </td>

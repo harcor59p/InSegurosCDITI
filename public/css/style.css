@@ -151,6 +151,7 @@ header{
     align-items: center;
     transform: translateX(10px);
     color: #fff;
+    margin-top: 10px;
 }
 
 .icon__menu i{
@@ -249,11 +250,11 @@ footer{
 /*Clases para usar en JavaScript*/
 
 .body_move{
-    margin-left: 250px;
+    margin-left: 280px;
 }
 
 .menu__side_move{
-    width: 250px;
+    width: 280px;
 }
 .icon__menu_t{
     margin: 0px;
@@ -270,7 +271,16 @@ footer{
 
     .menu__side_move{
         width: 80px;
-        left: -80px;
+        left: 80px;
     }
 }
+
+.container .container-card .card .contenido-card .card-text {
+    line-height: 1.8;
+	color: #000000;
+	font-size: 32px;
+	margin-bottom: 5px;
+}
+
+
 
