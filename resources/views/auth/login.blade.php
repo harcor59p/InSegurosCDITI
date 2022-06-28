@@ -73,13 +73,6 @@
                             <p class="text-center mx-3 mb-0"></p>
                         </div>
 
-                        <!--@if($errors->any())
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                <li> {{ $error }} </li>
-                                @endforeach
-                            </ul>
-                        @endif-->
                         @error('email') {{ $message }} @enderror
                         <!-- Email input -->
                         <div class="form-outline mb-3 pt-2">
@@ -101,16 +94,16 @@
                                     <p>Recordar Usuario</p>
                                 </label>
                             </div>
-                            <a href="#!" class="forget text-body-bold mb-3">Olvidó Su Contraseña?</a>
+                            <a href="{{Route('passwordReset')}}" class="forget text-body-bold mb-3">Olvidó Su Contraseña?</a>
                         </div>
 
                         <div class="text-center text-lg-start mt-2 pt-2">
                             <div class="mb-2 btn div-loginbtn">
                                 <button type="submit" onclick="saveUserName()" class="loginbtn text-white btn btn-lg btn-block">Login</button>
                             </div>
-                            <div class="btnstl">
-                                <p class="small fw-bold mt-2 pt-0 mb-0">¿No tienes una Cuenta?
-                                <a href="{{Route('register')}}" class="text-body-bold">Registrarse</a></p>
+                            <div class="btnstl" >
+                                <p class="small fw-bold mt-2 pt-0 mb-0" style="font-weight: bold;">¿No tienes una Cuenta?
+                                <a href="{{Route('register')}}" class="text-body-bold" style="font-weight: bold;">Registrarse</a></p>
                             </div>
                         </div>
 
