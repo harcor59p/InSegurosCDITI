@@ -45,8 +45,8 @@
 
             <a href="#">
                 <div class="option">
-                    <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguros De Vida Personas"></i>
-                    <h4>Cotizar Seguros De Vida Personas</h4>
+                    <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguro De Vida"></i>
+                    <h4>Cotizar Seguro De Vida</h4>
                 </div>
             </a>
 
@@ -94,7 +94,7 @@
             </div>
             <div class="card">
                 <div class="contenido-card">
-                    <h3 class="card-title">No. Cotizaciones Seguro de vida Personal</h3>
+                    <h3 class="card-title">No. Cotizaciones Seguro de Vida</h3>
                     <p class="card-text">Content</p>
                 </div>
             </div>

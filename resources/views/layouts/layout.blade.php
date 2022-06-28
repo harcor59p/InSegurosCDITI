@@ -66,10 +66,10 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{Route('segurosDeVida')}}">
                 <div class="option">
-                    <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguros De Vida Personas"></i>
-                    <h4>Cotizar Seguros De Vida Personas</h4>
+                    <i class="fa-solid fa-hands-holding-circle" title="Cotizar Seguro De Vida"></i>
+                    <h4>Cotizar Seguro de Vida</h4>
                 </div>
             </a>
 
