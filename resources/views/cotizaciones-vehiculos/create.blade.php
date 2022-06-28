@@ -40,14 +40,14 @@
         @foreach ($datosvehi_array as $datos )
         <div class="col-md-6">
             <ul class="list-group"></ul>
-            <li class="list-group-item active">{{$datos['licensePlate']}}</li>
-            <li class="list-group-item">{{$datos['vehicleMode']}}</li>
-            <li class="list-group-item">{{$datos['serie']}}</li>
-            <li class="list-group-item">{{$datos['cylinderCapacity']}}</li>
-            <li class="list-group-item">{{$datos['brand']}}</li>
-            <li class="list-group-item">{{$datos['services']}}</li>
-            <li class="list-group-item">{{$datos['color']}}</li>
-            <li class="list-group-item">{{$datos['riskAmount']}}</li>
+            <li class="list-group-item active">{{$datos->licensePlate}}</li>
+            <li class="list-group-item">{{$datos->vehicleMode}}</li>
+            <li class="list-group-item">{{$datos->serie}}</li>
+            <li class="list-group-item">{{$datos->cylinderCapacity}}</li>
+            <li class="list-group-item">{{$datos->brand}}</li>
+            <li class="list-group-item">{{$datos->services}}</li>
+            <li class="list-group-item">{{$datos->color}}</li>
+            <li class="list-group-item">{{$datos->riskAmount}}</li>
         </div>
 
         @endforeach

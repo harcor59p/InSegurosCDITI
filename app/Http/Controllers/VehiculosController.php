@@ -48,6 +48,7 @@ class VehiculosController extends Controller
 
         $clientecito = Cliente::all();
 
+
         return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array'));
     }
 
