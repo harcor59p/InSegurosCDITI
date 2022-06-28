@@ -16,7 +16,8 @@
       <hr>
       <h1 class="text-left">Cotiza tu Seguro de Vida ahora!</h1>
       <hr>
-      <form action="SV.php" method="post" class="row g-3">
+      <form action="{{Route('rSeguroVida')}}" method="post" class="row g-3">
+        @method('GET')
         <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Tipo de Documento</label>
           <select id="inputState" class="custom-select" name="document">
