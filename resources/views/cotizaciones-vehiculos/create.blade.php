@@ -37,7 +37,8 @@
             </div>
         </form>
         <br><br>
-        @foreach ($datosvehi_array as $datos )
+        
+        {{-- @foreach ($datosvehi_array as $datos )
         <div class="col-md-6">
             <ul class="list-group"></ul>
             <li class="list-group-item active">{{$datos->licensePlate}}</li>
@@ -50,7 +51,7 @@
             <li class="list-group-item">{{$datos->riskAmount}}</li>
         </div>
 
-        @endforeach
+        @endforeach --}}
     </div>
 </div>
 
