@@ -6,7 +6,7 @@
 
 <br>
 <div class="container">
-    <h2 class="title-cards">Cotizaciones Seguros - Vehiculos</h2>
+    <h2 class="title-cards">Cotizaciones Seguro - Vehiculos</h2>
     <br><br>
 
     @if (\Session::has('store'))

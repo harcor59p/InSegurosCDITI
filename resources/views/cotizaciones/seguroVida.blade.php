@@ -12,9 +12,9 @@
 </head>
 <div class="container">
       <hr>
-      <h1 class="text-left">Cotiza tu Seguro de Vida ahora!</h1>
+      <h1 class="text-left" style="color: #4a38a7;">Cotiza tu Seguro de Vida ahora!</h1>
       <hr>
-      <form action="{{Route('rSeguroVida')}}" method="post" class="row g-3">
+      <form action="{{Route('rSeguroVida'), Route('guardarSeguro')}}" method="post" class="row g-3">
         @method('GET')
         <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Tipo de Documento</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="mb-0 form-label">Número de Documento de Identidad</label>
-          <input type="number" class="form-control" id="inputEmail4" required>
+          <input type="number" class="form-control" id="identificacion" name="identificacion" required>
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="mb-0 form-label">Nombres</label>
