@@ -30,7 +30,7 @@ class SoatController extends Controller
                                 ->orderBy('soat.id')
                                 ->paginate(4);
         
-        return view('cotizaciones-soat.index' , compact('soat','texto'));
+        return view('cotizaciones-soat.index' , compact('soat','texto' ));
     }
 
     /**
