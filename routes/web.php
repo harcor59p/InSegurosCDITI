@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\SeguroVidaController;
+use App\Http\Controllers\SoatController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -49,6 +50,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/dashboard', DashboardController::class);
     Route::resource('/clientes', ClienteController::class);
     Route::resource('/vehiculos', VehiculosController::class);
+    Route::resource('/soat' , SoatController::class);
     //Route::resource('/vehiculos', ClienteController::class);
     //******************* Ruta para Usuarios **********************//
 
