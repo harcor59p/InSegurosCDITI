@@ -25,9 +25,9 @@ class UserSeeder extends Seeder
         });
         */
         DB::table('users')->insert([
-            'name' => 'nevits',
-            'email' => 'nevits@gmail.com',
-            'password' => bcrypt('22062021'),
+            'name' => 'Harold Cortes',
+            'email' => 'jose.cortes0986@misena.edu.co',
+            'password' => bcrypt('123'),
             'rol' => 'Administrador'
         ]);
 
