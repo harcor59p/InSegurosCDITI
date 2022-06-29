@@ -37,21 +37,30 @@
             </div>
         </form>
         <br><br>
-        
-        {{-- @foreach ($datosvehi_array as $datos )
-        <div class="col-md-6">
-            <ul class="list-group"></ul>
-            <li class="list-group-item active">{{$datos->licensePlate}}</li>
-            <li class="list-group-item">{{$datos->vehicleMode}}</li>
-            <li class="list-group-item">{{$datos->serie}}</li>
-            <li class="list-group-item">{{$datos->cylinderCapacity}}</li>
-            <li class="list-group-item">{{$datos->brand}}</li>
-            <li class="list-group-item">{{$datos->services}}</li>
-            <li class="list-group-item">{{$datos->color}}</li>
-            <li class="list-group-item">{{$datos->riskAmount}}</li>
+
+        @foreach ($datosvehi_array as $datos )
+        <div class="card d-grid gap-2 col-10 mx-auto">
+            <div class="card">
+                <h5 class="card-title">{{$datos->id}}</h5>
+            </div>
         </div>
 
-        @endforeach --}}
+
+
+        {{-- <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item active">{{($datos['licensePlate'])}}</li>
+                <li class="list-group-item">{{json_decode($datos[1],TRUE)}}</li>
+                <li class="list-group-item">{{json_decode($datos[2],TRUE)}}</li>
+                <li class="list-group-item">{{json_decode($datos[3],TRUE)}}</li>
+                <li class="list-group-item">{{json_decode($datos[4],TRUE)}}</li>
+                <li class="list-group-item">{{json_decode($datos[5],TRUE)}}</li>
+                 <li class="list-group-item">{{json_decode($datos[6],TRUE)}}</li>
+                <li class="list-group-item">{{json_decode($datos[7],TRUE)}}</li>
+            </ul>
+        </div> --}}
+
+        @endforeach
     </div>
 </div>
 
