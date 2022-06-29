@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\LinkResetPassword;
+use App\Models\Seguro;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Password;
 
-class PasswordResetController extends Controller
+class SegurosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,16 +35,14 @@ class PasswordResetController extends Controller
      */
     public function store(Request $request)
     {
-        request([
-            'emailreset' => 'emailreset'
-        ]);
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-
-        Mail::to(request('emailreset'))->send(new LinkResetPassword);
-
-        return view('rResetPassword');
+        $segurito = new Seguro();
+        $segurito->identificacion = $request->input('identificacion');
+        $segurito->nombres = $request->input('nameUsuario');
+        $segurito->apellidos = $request->input('apellidos');
+        $segurito->edad = $request->input('age');
+        $segurito->save();
+        return "el reistro de cotizacion a seguro de vida se guardo en la base de datos";
+        
     }
 
     /**

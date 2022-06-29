@@ -4,8 +4,6 @@
 
 @section('main')
 <head>
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
--->
     <style>
       .form-label{
         font-weight: bold;
@@ -14,9 +12,9 @@
 </head>
 <div class="container">
       <hr>
-      <h1 class="text-left">Cotiza tu Seguro de Vida ahora!</h1>
+      <h1 class="text-left" style="color: #4a38a7;">Cotiza tu Seguro de Vida ahora!</h1>
       <hr>
-      <form action="{{Route('rSeguroVida')}}" method="post" class="row g-3">
+      <form action="{{Route('rSeguroVida'), Route('guardarSeguro')}}" method="post" class="row g-3">
         @method('GET')
         <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Tipo de Documento</label>
@@ -29,7 +27,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="mb-0 form-label">Número de Documento de Identidad</label>
-          <input type="number" class="form-control" id="inputEmail4" required>
+          <input type="number" class="form-control" id="identificacion" name="identificacion" required>
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="mb-0 form-label">Nombres</label>
@@ -40,12 +38,12 @@
           <input type="text" class="form-control" id="apellidos" name="apellidos" required>
         </div>
         <div class="col-md-6">
-          <label for="inputPassword4" class="mb-0 form-label" required>Edad</label>
-          <input type="number" class="form-control" id="age" name="age">
+          <label for="inputPassword4" class="mb-0 form-label">Edad</label>
+          <input type="number" class="form-control" id="age" name="age" required>
         </div>
         <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Número de personas que dependen de usted</label>
-          <select id="inputState" class="custom-select" name="dependientes">
+          <select id="inputState" class="custom-select" name="dependientes" required>
               <option selected>Ninguna</option>
               <option>1</option>
               <option>2</option>
@@ -57,7 +55,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Área que desempeña en su trabajo</label>
-          <select id="inputState" class="custom-select" name="trabajo">
+          <select id="inputState" class="custom-select" name="trabajo" required>
             <option selected>Seleccione...</option>
             <option value="Dir">• Dirección</option>
             <option value="RecHum">• Recursos Humanos</option>
@@ -69,11 +67,11 @@
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="mb-0 form-label">Ingresos neto Anual (Sin puntos ni comas)</label>
-          <input type="number" class="form-control" id="ingresos" name="ingresos">
+          <input type="number" class="form-control" id="ingresos" name="ingresos" required>
         </div>
         <div class="col-md-12">
           <label for="inputPassword4" class="mb-0 form-label">Estado de salud</label>
-          <select id="inputState" class="custom-select" name="salud">
+          <select id="inputState" class="custom-select" name="salud" required>
             <option selected>Seleccione...</option>
             <option value="Mal">•	Malo</option>
             <option value="Reg">•	Regular</option>
