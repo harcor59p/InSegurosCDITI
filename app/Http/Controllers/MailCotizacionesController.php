@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\LinkResetPassword;
+use App\Mail\CotizacionesMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Password;
 
-class PasswordResetController extends Controller
+class MailCotizacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,15 +37,11 @@ class PasswordResetController extends Controller
     public function store(Request $request)
     {
         request([
-            'emailreset' => 'emailreset'
+            'email' => 'email',
         ]);
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
 
-        Mail::to(request('emailreset'))->send(new LinkResetPassword);
-
-        return view('rResetPassword');
+        Mail::to(request('email'))->send(new CotizacionesMail);
+        return 'la cotizacion ah sido enviada a tu correo.';
     }
 
     /**

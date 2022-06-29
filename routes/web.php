@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MailCotizacionesController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
@@ -46,7 +47,9 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('dashboard', DashboardController::class);
     //******************* Rutas para Usuarios **********************//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
+    Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
     Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
+    Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
 
 
