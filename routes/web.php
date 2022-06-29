@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\SeguroVidaController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::post('register',[RegisterController::class, 'register'])->name('register'
 Route::view('register','register');
 Route::put('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('/clientes', ClienteController::class);
+
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -55,6 +57,7 @@ Route::middleware(['auth'])->group(function(){
     Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
 
 
+    Route::resource('/usuarios', UsersController::class);
 
 });
 
