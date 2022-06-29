@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seguro;
 use App\Models\User;
 use App\Models\vehiculo;
 use Illuminate\Http\Request;
@@ -21,7 +22,9 @@ class DashboardController extends Controller
         $cant_users = $usuarios->count();
         $vehiculos = vehiculo::all();
         $cant_cot_vehi = $vehiculos->count();
-        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi')) ;
+        $vida = Seguro::all();
+        $cant_vida = $vida->count();
+        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi' , 'cant_vida')) ;
 
     }
 
