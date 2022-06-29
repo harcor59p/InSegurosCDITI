@@ -75,7 +75,7 @@
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Usuarios</h3>
-                    <br><br><br><br>
+                    <br>
                     <p class="card-text">
                         {{json_encode($cant_users,TRUE)}}
                     </p>
@@ -83,21 +83,23 @@
             </div>
             <div class="card">
                 <div class="contenido-card">
-                    <h3 class="card-title">No. Cotizaciones Vehiculos</h3>
+                    <h3 class="card-title">No. Cot. Vehiculos</h3>
+                    <br>
+                    <p class="card-text">
+                        {{json_encode($cant_cot_vehi,TRUE)}}
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="contenido-card">
+                    <h3 class="card-title">No. Cot. SOAT</h3>
                     <br>
                     <p class="card-text">Content</p>
                 </div>
             </div>
             <div class="card">
                 <div class="contenido-card">
-                    <h3 class="card-title">No. Cotizaciones SOAT</h3>
-                    <br>
-                    <p class="card-text">Content</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="contenido-card">
-                    <h3 class="card-title">No. Cotizaciones Seguro de Vida</h3>
+                    <h3 class="card-title">No. Cot. Seguro de Vida</h3>
                     <p class="card-text">Content</p>
                 </div>
             </div>

@@ -8,7 +8,9 @@ use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\SeguroVidaController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,7 @@ Route::post('register',[RegisterController::class, 'register'])->name('register'
 Route::view('register','register');
 Route::put('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('/clientes', ClienteController::class);
+
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -44,7 +47,12 @@ Route::middleware(['auth'])->group(function(){
 
     //Ruta para ir al Dashboard
     //Route::view('dashboard','dashboard');
-    Route::resource('dashboard', DashboardController::class);
+    Route::resource('/dashboard', DashboardController::class);
+    Route::resource('/clientes', ClienteController::class);
+    Route::resource('/vehiculos', VehiculosController::class);
+    //Route::resource('/vehiculos', ClienteController::class);
+    //******************* Ruta para Usuarios **********************//
+
     //******************* Rutas para Usuarios **********************//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
     Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
@@ -52,6 +60,7 @@ Route::middleware(['auth'])->group(function(){
     Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
 
+    Route::resource('/usuarios', UsersController::class);
 
 });
 

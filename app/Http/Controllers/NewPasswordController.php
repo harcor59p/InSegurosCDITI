@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
-
-
+use Illuminate\Validation\ValidationException;
 
 class NewPasswordController extends Controller
 {
@@ -43,19 +42,20 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request)
     {
-        $mensaje = [];
         $request->validate([
             'email' => ['required'],
             'password' => ['required'],
             'password_confirm' => ['required']
         ]);
- 
+
         if($request->password != $request->password_confirm){
-            return with('Las contraseñas no coinciden');
+            throw ValidationException::withMessages([
+                'iguales' =>  'Las contraseñas no coinciden',
+            ]);
         }else{
             User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
         }
-    
+
         return redirect('login')->with('success','La contraseña se ha cambiado correctamente.');
     }
 

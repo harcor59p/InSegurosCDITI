@@ -50,14 +50,22 @@
         <div class="options__menu">
 
 
+            <a href="/dashboard" class="select">
+                <div class="option">
+                    <i class="fa-solid fa-house-chimney-user" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+
             @if (auth()->user()->rol == 'Administrador')
 
-            <a href="#" class="option">
+            <a href="/usuarios" class="option">
                 <div class="option">
                     <i class="fa-solid fa-users" title="Usuarios"></i>
                     <h4>Usuarios</h4>
                 </div>
-                </a>
+                <span class="sr-only">(current)</span></a>
 
             @endif
 
@@ -83,7 +91,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="/vehiculos">
                 <div class="option">
                     <i class="fa-solid fa-car-burst" title="Cotizar Seguros Vehiculo"></i>
                     <h4>Cotizar Seguros Vehiculo</h4>

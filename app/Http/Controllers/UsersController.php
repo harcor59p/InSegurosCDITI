@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ClienteController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +16,17 @@ class ClienteController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $clientecito=DB::table('clientes')
-                                ->select('id' , 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
+        $usuari=DB::table('users')
+                                ->select('id',  'name' , 'email' , 'rol', 'updated_at')
                                 ->where('id','LIKE' , '%'.$texto.'%')
-                                ->orwhere('identificacion','LIKE' , '%'.$texto.'%')
-                                ->orwhere('nombre','LIKE' , '%'.$texto.'%')
+                                ->orwhere('password','LIKE' , '%'.$texto.'%')
+                                ->orwhere('name','LIKE' , '%'.$texto.'%')
                                 ->orwhere('email','LIKE' , '%'.$texto.'%')
-                                ->orwhere('telefono','LIKE' , '%'.$texto.'%')
+                                ->orwhere('rol','LIKE' , '%'.$texto.'%')
                                 ->orderBy('id')
                                 ->paginate(4);
-        //$clientecito = Cliente::orderBy('id')->paginate(6);
-        return view('clientes.index' , compact('clientecito','texto'));
+
+        return view('/usuarios.index' , compact('usuari','texto'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-       //
+        //
     }
 
     /**
@@ -47,13 +47,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $clientecito = new Cliente();
-        $clientecito->identificacion = $request->input('identificacion');
-        $clientecito->nombre = $request->input('nombre');
-        $clientecito->email = $request->input('email');
-        $clientecito->telefono = $request->input('telefono');
-        $clientecito->save();
-        return redirect('/clientes')->with('store','Cliente Creado Satisfactoriamente');
+        $usuari = new User();
+        $usuari->id = $request->input('id');
+        $usuari->name = $request->input('name');
+        $usuari->email = $request->input('email');
+        $usuari->password = $request->input('password');
+        $usuari->save();
+        return redirect('/usuarios')->with('store','usuario Creado Satisfactoriamente');
     }
 
     /**
@@ -87,16 +87,16 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $clientecito = Cliente::find($id);
+         $usuari = User::find($id);
 
-        $clientecito->identificacion = $request->identificacion;
-        $clientecito->nombre = $request->nombre;
-        $clientecito->email = $request->email;
-         $clientecito->telefono = $request->telefono;
+        $usuari->id = $request->id;
+        $usuari->name = $request->name;
+        $usuari->email = $request->email;
+        $usuari->password = $request->password;
 
-        $clientecito->save();
+        $usuari->save();
 
-        return redirect('/clientes')->with('update','Cliente Editado Satisfactoriamente');
+        return redirect('/usuarios')->with('update','Usuario Editado Satisfactoriamente');
 
 
 
@@ -110,7 +110,7 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        Cliente::destroy($id);
-        return redirect('/clientes')->with('destroy','Cliente Eliminado');
+        User::destroy($id);
+        return redirect('/usuarios')->with('destroy','Usuario Eliminado');
     }
 }

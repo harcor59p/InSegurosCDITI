@@ -64,6 +64,7 @@
                         <label for="exampleInputEmail1">Confirme la nueva contraseña</label>
                         <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirmar Contraseña" required>
                     </div>
+                    @error('iguales') {{ $message }} @enderror
                     <button type="submit" class="btn btn-primary text-center" style="background-color:#4a38a7; border: #4a38a7; text-align: center; font-weight: bold;">Cambiar</button>
                 </form>
                 <hr>
