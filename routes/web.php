@@ -12,6 +12,7 @@ use App\Http\Controllers\SegurosController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\SeguroVidaController;
 use App\Http\Controllers\SoatController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -44,7 +45,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/dashboard', DashboardController::class);
 
     //--------------------- Rutas Usuarios -----------------------//
-    Route::resource('/usuarios', UsersController::class);
+    Route::resource('/usuarios', UserController::class);
 
     //--------------------- Rutas Clientes -----------------------//
     Route::resource('/clientes', ClienteController::class);

@@ -179,7 +179,7 @@
           @endforeach
         </tbody>
       </table>
-{{ $usuari->links('vendor.pagination.bootstrap-4' )}}
+{{ $usuario->links('vendor.pagination.bootstrap-4' )}}
 </div>
 
 <!-- Modal de Configuración -->
