@@ -15,6 +15,11 @@
         <br><br>
         <div align="center"><img src="logo.png" alt="No disponible"></div>
         <br><br>
+        <div class="col-xl-12">
+            <div class="form-row">
+
+            </div>
+        </div>
         <a href="{{Route('register')}}" class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7;">
             Registrarse
          </a>

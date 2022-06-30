@@ -54,8 +54,8 @@ Route::middleware(['auth'])->group(function(){
     //------------------ Rutas Seguro de Vida --------------------//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
     Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
-    Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
     Route::post('seguro-guardado', [SegurosController::class, 'store'])->name('guardarSeguro');
+    Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
     Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
     //------------------- Rutas Vehiculos ---------------------//

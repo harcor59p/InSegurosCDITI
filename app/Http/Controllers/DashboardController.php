@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seguro;
+use App\Models\soat;
 use App\Models\User;
 use App\Models\vehiculo;
 use Illuminate\Http\Request;
@@ -24,7 +25,9 @@ class DashboardController extends Controller
         $cant_cot_vehi = $vehiculos->count();
         $vida = Seguro::all();
         $cant_vida = $vida->count();
-        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi' , 'cant_vida')) ;
+        $soat = soat::all();
+        $cant_soat = $soat->count();
+        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi' , 'cant_vida' , 'cant_soat' )) ;
 
     }
 

@@ -14,9 +14,9 @@
       <hr>
       <h1 class="text-left" style="color: #4a38a7;">Cotiza tu Seguro de Vida ahora!</h1>
       <hr>
-      <form action="{{Route('rSeguroVida'), Route('guardarSeguro')}}" method="post" class="row g-3">
-        @method('GET')
-        <div class="col-md-6">
+      <form action="{{Route('rSeguroVida')}}" method="post" class="row g-3">
+          @method('GET')
+          <div class="col-md-6">
           <label for="inputState" class="mb-0 form-label">Tipo de Documento</label>
           <select id="inputState" class="custom-select" name="document">
             <option selected>Seleccione...</option>
@@ -82,7 +82,7 @@
         <div class="d-grid gap- col-mt-6 mx-auto mt-4">
           <button class="btn btn-primary" type="submit" style="background-color: #4a38a7; border: #fff; font-weight: bold;">Consulta tu Seguro de Vida!</button>
         </div>
-        
+
       </form>
     </div>
 

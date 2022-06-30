@@ -41,8 +41,8 @@ class SegurosController extends Controller
         $segurito->apellidos = $request->input('apellidos');
         $segurito->edad = $request->input('age');
         $segurito->save();
-        return "el reistro de cotizacion a seguro de vida se guardo en la base de datos";
-        
+        return redirect()->view('rSeguroVida')->with('store','Cotizacion de Seguro de vida Creada Satisfactoriamente');
+
     }
 
     /**

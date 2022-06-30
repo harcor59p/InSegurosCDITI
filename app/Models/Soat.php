@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class soat extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'fecha_cot_soat',
         'placa',

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Cliente;
-use App\Models\Soat;
+use App\Models\soat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -29,7 +29,7 @@ class SoatController extends Controller
                                 ->orwhere('soat.marca','LIKE' , '%'.$texto.'%')
                                 ->orderBy('soat.id')
                                 ->paginate(4);
-        
+
         return view('cotizaciones-soat.index' , compact('soat','texto' ));
     }
 
@@ -57,7 +57,7 @@ class SoatController extends Controller
      */
     public function store(Request $request)
     {
-        $soat = new Soat();
+        $soat = new soat();
         // $vehiculo->identificacion = $request->input('identificacion');
         // $vehiculo->nombre = $request->input('nombre');
         // $vehiculo->email = $request->input('email');

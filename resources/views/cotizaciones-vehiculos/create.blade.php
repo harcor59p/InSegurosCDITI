@@ -41,7 +41,7 @@
         @foreach ($datosvehi_array as $datos )
         <div class="card d-grid gap-2 col-10 mx-auto">
             <div class="card">
-                <h5 class="card-title">{{$datos->id}}</h5>
+                {{-- <h5 class="card-title">{{$datos->id}}</h5> --}}
             </div>
         </div>
 

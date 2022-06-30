@@ -75,7 +75,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ( $soat as $soatss )
+          @foreach ( $soat as $soats )
           <tr>
             <th>{{soats->id}}</th>
             <th>{{soats->fecha_cot}}</th>
