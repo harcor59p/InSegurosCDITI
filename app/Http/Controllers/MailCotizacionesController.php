@@ -41,7 +41,7 @@ class MailCotizacionesController extends Controller
         ]);
 
         Mail::to(request('email'))->send(new CotizacionesMail);
-        return 'la cotizacion ah sido enviada a tu correo.';
+        return redirect()->route('segurosDeVida')->with('enviado', 'La cotizacion fue envida a su correo');
     }
 
     /**

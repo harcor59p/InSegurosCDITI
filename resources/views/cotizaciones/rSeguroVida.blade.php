@@ -6,9 +6,10 @@
 <head>
     <?php
             //Datos del Usuario recibidos del formulario
-            $nomUsario = $_POST['nameUsuario'];
+            /*$identificacion = $_POST['identificacion'];
+            $nomUsario = $_POST['nombres'];
             $apeUsuario = $_POST['apellidos'];
-            $age = $_POST['age'];
+            $age = $_POST['edad']; */
             $dependientes = $_POST['dependientes'];
             $trabajo = $_POST['trabajo'];
             $ingresos = $_POST['ingresos'];
@@ -17,14 +18,14 @@
             $ingresoAnual = (int)$ingresos*5;
 
             //Porcentaje por Rango de Edad
-            if($age <= 35){
-                $edad = 120;
+            if($dependientes == 1 OR $dependientes == 2){
+                $dependientes = 120;
             }
-            elseif($age >= 36 && $age <= 55){
-                $edad = 160;
+            elseif($dependientes == 3 OR $dependientes == 5){
+                $dependientes = 160;
             }
-            elseif($age > 55){
-                $edad = 200;
+            elseif($dependientes == 5 OR $dependientes == +5){
+                $dependientes = 200;
             }
 
             //Porcentaje por Riesgo en el Trabajo
@@ -71,7 +72,7 @@
             $porcentaje = $ingresoAnual * $trabajo / 100;
             $suma = $ingresoAnual + $porcentaje;
             //Capital Asegurado * riesgo * edad
-            $porcentajeEdad = $suma * $edad / 100;
+            $porcentajeEdad = $suma * $dependientes / 100;
             //Capital Asegurado * riesgo * edad * salud
             $porcentajeSalud = $porcentajeEdad * (int)$salud / 100;
             $capitalAsegurado = $porcentajeEdad + $porcentajeSalud;
@@ -99,24 +100,6 @@
                         </p>
                         <p class="text-center" style="font-weight: bold;">Seguros que te Cuidan</p>
                     </div>
-                    <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Edad</th>
-                            <th scope="col">Valor del Seguro</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $nomUsario ?></td>
-                            <td><?php echo $apeUsuario ?></td>
-                            <td><?php echo $age ?></td>
-                            <td>$<?php echo number_format($capitalAsegurado); ?></td>
-                        </tr>
-                    </tbody>
-                    </table>
                 </div>
             </div>
         <form action="{{Route('mailSeguros')}}" method="POST">
@@ -131,11 +114,20 @@
                 </div>
             </div>
         </form>
+        <!--<form action="{{Route('valorGuardado')}}" method="POST">
+            @csrf
+            <div class="card-body pt-0" style="text-align: center; font-weight: bold; align-self: center;">
+                <div class="input-group mb-3">
+                    <label class="mb-0 mt-2 mr-1">Guardar Cotizacion</label>
+                    <input type="hidden" name="capitalAsegurado" id="capitalAsegurado" value="{{$capitalAsegurado}}">
+                    <div class="input-group-append">
+                        <button class="btn" type="submit" style="background-color: #4a38a7; border: #fff; font-weight: bold; color: #fff;">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </form> -->
     </div>
 </body>
-
-
-
 
 
 @endsection

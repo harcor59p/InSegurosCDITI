@@ -26,7 +26,6 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 //--------------- Rutas Login, Register y Resetear Password ---------------//
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::view('login', 'auth.login');
@@ -52,8 +51,10 @@ Route::middleware(['auth'])->group(function(){
     //------------------ Rutas Seguro de Vida --------------------//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
     Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
-    Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
-    Route::post('seguro-guardado', [SegurosController::class, 'store'])->name('guardarSeguro');
+    Route::view('valorTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name    ('rSeguroVida');
+    Route::post('seguroGuardado', [SegurosController::class, 'store'])->name('seguroGuardado');
+    Route::post('valorGuardao', [SegurosController::class, 'index'])->name('valorGuardado');
+    Route::view('cotizarSeguro', 'cotizaciones.formSeguros')->name('cotizarSeguro');
     Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
     //------------------- Rutas Vehiculos ---------------------//
