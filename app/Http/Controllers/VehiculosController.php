@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+use function Psy\debug;
+
 class VehiculosController extends Controller
 {
     /**
@@ -47,10 +49,11 @@ class VehiculosController extends Controller
 
         $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
         $datosvehi_array = $datosvehi->json();
+        //$datosvehi_array = json_decode($datosvehi);
 
 
 
-        //dd($datosvehi_array);
+        //dd($datosvehi_array['licensePlate']);
         return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array'));
     }
 
