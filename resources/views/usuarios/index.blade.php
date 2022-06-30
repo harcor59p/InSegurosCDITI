@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('titulo', 'users')
+@section('titulo', 'usuarios')
 
 @section('main')
 
@@ -32,7 +32,7 @@
             <form action="{{route('usuarios.index')}}" method="get">
                 <div class="form-row">
                     <div class="col-sm-7">
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#usuarioModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Usuario</button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#usuarioModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Cliente</button>
                     </div>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="texto" value="{{$texto}}">
@@ -58,12 +58,12 @@
             @endforeach
         @endif
 
-        <!-- creacion de usuarios -->
+        <!-- Modal de creacion de Clientes -->
             <div class="modal fade" id="usuarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="usuarioModalLabel">Se creara un nuevo usuario</h5>
+                    <h5 class="modal-title" id="usuarioModalLabel">Se creara un nuevo cliente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,86 +71,95 @@
                 <div class="modal-body">
                     <form>
                     <div class="form-group">
-                        <label for="identificacion" class="col-form-label">Identificación: </label>
-                        <input type="text" class="form-control" id="identificacion" name="identificacion">
+                        <label for="id" class="col-form-label">Id: </label>
+                        <input type="text" class="form-control" id="id" name="id">
                     </div>
                     <div class="form-group">
-                        <label for="nombre" class="col-form-label">Nombre: </label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
+                        <label for="name" class="col-form-label">Nombre: </label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">E-mail: </label>
                         <input type="email" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="telefono" class="col-form-label">Telefóno: </label>
-                        <input type="text" class="form-control" id="telefono" name="telefono">
+                        <label for="password" class="col-form-label">contraseña: </label>
+                        <input type="text" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="rol" class="col-form-label">rol: </label>
+                        <input type="text" class="form-control" id="rol" name="rol">
                     </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Crear usuario</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Crear Cliente</button>
                 </div>
                 </div>
             </div>
             </div>
 
     </form>
-<!-- creacion de usuarios -->
+<!-- Modal de creacion de Clientes -->
 
     <br>
     <table class="table table-striped">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Identificación</th>
             <th scope="col">Nombre</th>
             <th scope="col">E-mail</th>
-            <th scope="col">Telefóno</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Rol</th>
             <th scope="col">Fecha Modificación</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ( $usuari as $usuario )
+          @foreach ( $usuario as $usuari )
           <tr>
-            <th>{{$usuario->id}}</th>
-            <!--<th></th>-->
-            <th>{{$usuario->name}}</th>
-            <th>{{$usuario->email}}</th>
-            <th>{{$usuario->updated_at}}</th>
+            <th>{{$usuari->id}}</th>
+            <th>{{$usuari->name}}</th>
+            <th>{{$usuari->email}}</th>
+            <th>{{$usuari->password}}</th>
+            <th>{{$usuari->rol}}</th>
+            <th>{{$usuari->updated_at}}</th>
             <th>
-                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#editModal{{$usuario->id}}">Editar  <i class="fa-solid fa-pen-to-square"></i></i></button>
-                <!-- edición de usuariosss -->
-                    <div class="modal fade" id="editModal{{$usuario->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#editModal{{$usuari->id}}">Editar  <i class="fa-solid fa-pen-to-square"></i></i></button>
+                <!-- Modal de edición de Clientes -->
+                    <div class="modal fade" id="editModal{{$usuari->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="usuarioModalLabel">Se actualizaran los datos del usuario</h5>
+                                <h5 class="modal-title" id="usuarioModalLabel">Se actualizaran los datos del cliente</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('usuario.update', $usuari->id)}}" method="POST">
+                                <form action="{{route('usuarios.update', $usuari->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                 <div class="form-group">
-                                    <label for="identificacion" class="col-form-label">Identificación: </label>
-                                    <input type="text" class="form-control" id="identificacion" value="{{$usuario->identificacion}}" name="identificacion" >
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <input type="text" class="form-control" id="id" value="{{$usuari->id}}" name="id" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="nombre" class="col-form-label">Nombre: </label>
-                                    <input type="text" class="form-control" id="nombre" value="{{$usuario->nombre}}" name="nombre" >
+                                    <label for="name" class="col-form-label">Nombre: </label>
+                                    <input type="text" class="form-control" id="name" value="{{$usuari->name}}" name="name" >
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-form-label">E-mail: </label>
-                                    <input type="email" class="form-control" id="email" value="{{$usuario->email}}" name="email" >
+                                    <input type="email" class="form-control" id="email" value="{{$usuari->email}}" name="email" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="telefono" class="col-form-label">Telefóno: </label>
-                                    <input type="text" class="form-control" id="telefono" value="{{$usuario->telefono}}" name="telefono" >
+                                    <label for="password" class="col-form-label">Contraseña: </label>
+                                    <input type="text" class="form-control" id="password" value="{{$usuari->password}}" name="password" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="rol" class="col-form-label">Rol: </label>
+                                    <input type="text" class="form-control" id="rol" value="{{$usuari->rol}}" name="rol" >
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -162,9 +171,9 @@
                         </div>
                     </div>
 
-<!--edición de usuarios -->
+<!-- Modal de edición de Clientes -->
 
-                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-nombre="{{$usuario->nombre}}" data-id="{{$usuario->id}}">Eliminar  <i class="fa-solid fa-trash"></i></button>
+                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-name="{{$usuari->name}}" data-id="{{$usuari->id}}">Eliminar  <i class="fa-solid fa-trash"></i></button>
             </th>
             </tr>
           @endforeach
@@ -173,6 +182,7 @@
 {{ $usuari->links('vendor.pagination.bootstrap-4' )}}
 </div>
 
+<!-- Modal de Configuración -->
 
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -190,7 +200,7 @@
 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-        <form  id="formdelete" action="{{route('usuario.destroy', 1 )}}" data-action="{{route('usuario.destroy', 1)}}"  method="post">
+        <form  id="formdelete" action="{{route('usuarios.destroy', 1 )}}" data-action="{{route('usuarios.destroy', 1)}}"  method="post">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Eliminar</button>
@@ -205,16 +215,39 @@
   $('#deleteModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('id') // Extract info from data-* attributes
-  var nombre = button.data('nombre') // Extract info from data-* attributes
+  var name = button.data('name') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
   action = $('#formdelete').attr('data-action').slice(0,-1);
   action+= id;
   $('#formdelete').attr('action',action);
   var modal = $(this)
-  modal.find('.modal-title').text('Se va a eliminar el usuario: ' + nombre)
+  modal.find('.modal-title').text('Se va a eliminar el cliente: ' + name)
 
 })
 </script>
+
+<!-- Modal de Configuración -->
+
+
+
+{{-- <script>
+    $('#deditModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id') // Extract info from data-* attributes
+    var nombre = button.data('nombre') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    action = $('#formdelete').attr('data-action').slice(0,-1);
+    action+= id;
+    $('#formdelete').attr('action',action);
+    var modal = $(this)
+    modal.find('.modal-title').text('Se va a eliminar el cliente: ' + nombre)
+
+  })
+  </script> --}}
+
+
+
 
 @endsection
