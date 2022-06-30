@@ -53,14 +53,14 @@
                 <form action="{{Route('rPasswordReset')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                    <label for="exampleInputEmail1">Ingrese su Email para restablecer la contraseña</label>
-                    <input type="email" class="form-control" id="emailreset" name="emailreset" placeholder="Email" required>
+                        <label for="exampleInputEmail1">Ingrese su Email para restablecer la contraseña</label>
+                        <input type="email" class="form-control" id="emailreset" name="emailreset" placeholder="Email" required>
                     </div>
                     <button type="submit" class="btn btn-primary text-center" style="background-color:#4a38a7; border: #4a38a7; text-align: center;">Enviar</button>
                     
                 </form>
                 <form action="{{Route('login')}}">
-                    <button action="{{Route('login')}}" type="submit" class="btn btn-primary mt-3" style="background-color:#4a38a7; border: #4a38a7; text-align: center;">Cancelar</button>
+                    <button type="submit" class="btn btn-primary mt-3" style="background-color:#4a38a7; border: #4a38a7; text-align: center;">Cancelar</button>
                 </form>
                 <hr>
             </div>

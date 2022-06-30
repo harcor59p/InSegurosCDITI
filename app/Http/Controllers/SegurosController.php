@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seguro;
-use App\Models\Soat;
-use App\Models\User;
-use App\Models\vehiculo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DashboardController extends Controller
+class SegurosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,16 +15,6 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $usuarios = User::all();
-        $cant_users = $usuarios->count();
-        $vehiculos = vehiculo::all();
-        $cant_cot_vehi = $vehiculos->count();
-        $vida = Seguro::all();
-        $cant_vida = $vida->count();
-        $soat = Soat::all();
-        $cant_soat = $soat->count();
-        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi' , 'cant_vida' , 'cant_soat' )) ;
-
     }
 
     /**
@@ -49,7 +35,14 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $segurito = new Seguro();
+        $segurito->identificacion = $request->input('identificacion');
+        $segurito->nombres = $request->input('nameUsuario');
+        $segurito->apellidos = $request->input('apellidos');
+        $segurito->edad = $request->input('age');
+        $segurito->save();
+        return redirect()->view('rSeguroVida')->with('store','Cotizacion de Seguro de vida Creada Satisfactoriamente');
+
     }
 
     /**
