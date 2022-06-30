@@ -44,16 +44,19 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-        $clientecito = Cliente::all();
 
+
+        $clientecito = Cliente::all();
         $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
         $datosvehi_array = $datosvehi->json();
         //$datosvehi_array = json_decode($datosvehi);
 
+        $clisel=DB::table('clientes')
+                                ->select('clientes.identificacion' , 'clientes.nombre' , 'clientes.email' , 'clientes.telefono')
+                                ->where('clientes.id' , '=', 2);
 
-
-        //dd($datosvehi_array['licensePlate']);
-        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array'));
+        dd($clisel);
+        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array' , 'clisel'));
     }
 
     /**
