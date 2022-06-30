@@ -54,7 +54,7 @@ class UserController extends Controller
         $usuari->password = $request->input('password');
         $usuari->rol= $request->input('rol');
         $usuari->save();
-        return redirect('/usuarios')->with('store','Cliente Creado Satisfactoriamente');
+        return redirect('/usuarios')->with('store','Usuario Creado Satisfactoriamente');
     }
 
     /**
@@ -88,9 +88,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $usuari = User::find($id);
 
-        $usuari->id = $request->id;
+        $usuari = User::find($id);
+
+
         $usuari->name = $request->name;
         $usuari->email = $request->email;
         $usuari->password = $request->password;
@@ -98,7 +99,7 @@ class UserController extends Controller
 
         $usuari->save();
 
-        return redirect('/usuarios')->with('update','Cliente Editado Satisfactoriamente');
+        return redirect('/usuarios')->with('update','Usuario Editado Satisfactoriamente');
 
 
 
@@ -113,6 +114,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect('/usuarios')->with('destroy','Cliente Eliminado');
+        return redirect('/usuarios')->with('destroy','Usuario Eliminado');
     }
 }
