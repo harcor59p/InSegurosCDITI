@@ -32,7 +32,7 @@
             <form action="{{route('usuarios.index')}}" method="get">
                 <div class="form-row">
                     <div class="col-sm-7">
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#usuarioModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Cliente</button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#usuarioModal" data-whatever="@mdo" style="background-color: #4a38a7">Crear Usuario</button>
                     </div>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="texto" value="{{$texto}}">
@@ -63,17 +63,13 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="usuarioModalLabel">Se creara un nuevo cliente</h5>
+                    <h5 class="modal-title" id="usuarioModalLabel">Se creara un nuevo Usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form>
-                    <div class="form-group">
-                        <label for="id" class="col-form-label">Id: </label>
-                        <input type="text" class="form-control" id="id" name="id">
-                    </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Nombre: </label>
                         <input type="text" class="form-control" id="name" name="name">
@@ -84,17 +80,21 @@
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-form-label">contraseña: </label>
-                        <input type="text" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="form-group">
                         <label for="rol" class="col-form-label">rol: </label>
-                        <input type="text" class="form-control" id="rol" name="rol">
+                        <select type="text" class="form-control" id="rol" name="rol">
+                            <option disabled="">Escoge Un Rol</option>
+                            <option value="Usuario">Usuario</option>
+                            <option value="Administrador">Admistrador</option>
+                        </select>
                     </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Crear Cliente</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Crear Usuario</button>
                 </div>
                 </div>
             </div>
@@ -110,7 +110,6 @@
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">E-mail</th>
-            <th scope="col">Contraseña</th>
             <th scope="col">Rol</th>
             <th scope="col">Fecha Modificación</th>
             <th scope="col">Acciones</th>
@@ -122,7 +121,6 @@
             <th>{{$usuari->id}}</th>
             <th>{{$usuari->name}}</th>
             <th>{{$usuari->email}}</th>
-            <th>{{$usuari->password}}</th>
             <th>{{$usuari->rol}}</th>
             <th>{{$usuari->updated_at}}</th>
             <th>
@@ -132,7 +130,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="usuarioModalLabel">Se actualizaran los datos del cliente</h5>
+                                <h5 class="modal-title" id="usuarioModalLabel">Se actualizaran los datos del Usuario</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -141,25 +139,25 @@
                                 <form action="{{route('usuarios.update', $usuari->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
-                                <div class="form-group">
-                                    <label for="id" class="col-form-label">Id: </label>
-                                    <input type="text" class="form-control" id="id" value="{{$usuari->id}}" name="id" >
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="col-form-label">Nombre: </label>
-                                    <input type="text" class="form-control" id="name" value="{{$usuari->name}}" name="name" >
-                                </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-form-label">Nombre: </label>
+                                        <input type="name" class="form-control" id="name" value="{{$usuari->name}}" name="name" >
+                                    </div>
                                 <div class="form-group">
                                     <label for="email" class="col-form-label">E-mail: </label>
                                     <input type="email" class="form-control" id="email" value="{{$usuari->email}}" name="email" >
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Contraseña: </label>
-                                    <input type="text" class="form-control" id="password" value="{{$usuari->password}}" name="password" >
+                                    <input type="password" class="form-control" id="password" value="" name="password" >
                                 </div>
                                 <div class="form-group">
                                     <label for="rol" class="col-form-label">Rol: </label>
-                                    <input type="text" class="form-control" id="rol" value="{{$usuari->rol}}" name="rol" >
+                                    <select type="text" class="form-control" id="rol" value="{{$usuari->rol}}" name="rol">
+                                        <option disabled="">Escoge El Nuevo Rol</option>
+                                        <option value="Usuario">Usuario</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -179,7 +177,7 @@
           @endforeach
         </tbody>
       </table>
-{{ $usuari->links('vendor.pagination.bootstrap-4' )}}
+{{ $usuario->links('vendor.pagination.bootstrap-4' )}}
 </div>
 
 <!-- Modal de Configuración -->
@@ -222,7 +220,7 @@
   action+= id;
   $('#formdelete').attr('action',action);
   var modal = $(this)
-  modal.find('.modal-title').text('Se va a eliminar el cliente: ' + name)
+  modal.find('.modal-title').text('Se va a eliminar el Usuario: ' + name)
 
 })
 </script>
