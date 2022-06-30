@@ -24,7 +24,7 @@ class UserController extends Controller
                                 ->orwhere('password','LIKE' , '%'.$texto.'%')
                                 ->orwhere('rol','LIKE' , '%'.$texto.'%')
                                 ->orderBy('id')
-                                ->paginate(2);
+                                ->paginate(4);
 
         return view('usuarios.index' , compact('usuario','texto'));
     }
