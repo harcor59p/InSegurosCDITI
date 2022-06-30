@@ -2,39 +2,35 @@
 
 namespace App\Http\Controllers;
 use App\Models\Cliente;
-use App\Models\vehiculo;
+use App\Models\soat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-use function Psy\debug;
-
-class VehiculosController extends Controller
+class SoatController extends Controller
 {
     /**
-     *  Display a listing of the resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-
         $texto = trim($request->get('texto'));
-        $vehiculo=DB::table('vehiculos')
-                                ->join('clientes' , 'vehiculos.cliente_id' , '=' , 'clientes.id' )
-                                ->select('vehiculos.id', 'vehiculos.fecha_cot' , 'clientes.identificacion', 'clientes.nombre' , 'vehiculos.placa', 'vehiculos.modelo' , 'vehiculos.cilindraje' , 'vehiculos.marca' , 'vehiculos.vr_serg_vehi' )
-                                ->where('vehiculos.id','LIKE' , '%'.$texto.'%')
+        $soat=DB::table('Soats')
+                                ->join('clientes' , 'soats.cliente_id' , '=' , 'clientes.id' )
+                                ->select('soats.id', 'soats.fecha_cot_soat' , 'clientes.identificacion', 'clientes.nombre' , 'soats.placa', 'soats.modelo' , 'soats.cilindraje' , 'soats.marca' , 'soats.vr_soat' )
+                                ->where('Soats.id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.nombre','LIKE' , '%'.$texto.'%')
-                                ->orwhere('vehiculos.placa','LIKE' , '%'.$texto.'%')
-                                ->orwhere('vehiculos.modelo','LIKE' , '%'.$texto.'%')
-                                ->orwhere('vehiculos.cilindraje','LIKE' , '%'.$texto.'%')
-                                ->orwhere('vehiculos.marca','LIKE' , '%'.$texto.'%')
-                                ->orderBy('vehiculos.id')
+                                ->orwhere('soats.placa','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.modelo','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.cilindraje','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.marca','LIKE' , '%'.$texto.'%')
+                                ->orderBy('soats.id')
                                 ->paginate(4);
-        //$clientecito = Cliente::orderBy('id')->paginate(6);
-        return view('cotizaciones-vehiculos.index' , compact('vehiculo','texto'));
 
+        return view('cotizaciones-soat.index' , compact('soat','texto' ));
     }
 
     /**
@@ -44,19 +40,13 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-
+        $datosSoat = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
+        $soat_array = $datosSoat->json();
 
         $clientecito = Cliente::all();
-        $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
-        $datosvehi_array = $datosvehi->json();
-        //$datosvehi_array = json_decode($datosvehi);
 
-        $clisel=DB::table('clientes')
-                                ->select('clientes.identificacion' , 'clientes.nombre' , 'clientes.email' , 'clientes.telefono')
-                                ->where('clientes.id' , '=', 2);
 
-        dd($clisel);
-        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array' , 'clisel'));
+        return view('cotizaciones-soat.create' , compact('clientecito' , 'soat_array'));
     }
 
     /**
@@ -67,13 +57,13 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
-        $vehiculo = new vehiculo();
+        $soat = new soat();
         // $vehiculo->identificacion = $request->input('identificacion');
         // $vehiculo->nombre = $request->input('nombre');
         // $vehiculo->email = $request->input('email');
         // $vehiculo->telefono = $request->input('telefono');
-        $vehiculo->save();
-        return redirect('cotizaciones-vehiculos.index')->with('store','Cotización Creada Satisfactoriamente');
+        $soat->save();
+        return redirect('cotizaciones-soat.index')->with('store','Cotización Creada Satisfactoriamente');
     }
 
     /**

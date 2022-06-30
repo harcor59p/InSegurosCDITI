@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SegurosController;
 use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\SeguroVidaController;
+use App\Http\Controllers\SoatController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -26,7 +29,6 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 //--------------- Rutas Login, Register y Resetear Password ---------------//
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::view('login', 'auth.login');
@@ -42,18 +44,20 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/dashboard', DashboardController::class);
 
     //--------------------- Rutas Usuarios -----------------------//
-    Route::resource('/usuarios', UsersController::class);
+    Route::resource('/usuarios', UserController::class);
 
     //--------------------- Rutas Clientes -----------------------//
     Route::resource('/clientes', ClienteController::class);
 
     //------------------------ Rutas SOAT ------------------------//
-
+    Route::resource('/soat', SoatController::class);
     //------------------ Rutas Seguro de Vida --------------------//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
     Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
-    Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
-    Route::post('seguro-guardado', [SegurosController::class, 'store'])->name('guardarSeguro');
+    Route::view('valorTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name    ('rSeguroVida');
+    Route::post('seguroGuardado', [SegurosController::class, 'store'])->name('seguroGuardado');
+    Route::post('valorGuardao', [SegurosController::class, 'index'])->name('valorGuardado');
+    Route::view('cotizarSeguro', 'cotizaciones.formSeguros')->name('cotizarSeguro');
     Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
     //------------------- Rutas Vehiculos ---------------------//

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Seguro;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 
 class SegurosController extends Controller
 {
@@ -12,9 +14,12 @@ class SegurosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $segurito = new Seguro([$request->all()]);
+        $segurito->save();
+        return view('cotizaciones.seguroVida');
+
     }
 
     /**
@@ -35,14 +40,11 @@ class SegurosController extends Controller
      */
     public function store(Request $request)
     {
-        $segurito = new Seguro();
-        $segurito->identificacion = $request->input('identificacion');
-        $segurito->nombres = $request->input('nameUsuario');
-        $segurito->apellidos = $request->input('apellidos');
-        $segurito->edad = $request->input('age');
+        $segurito = new Seguro($request->all());
+        //dd($segurito);
         $segurito->save();
-        return "el reistro de cotizacion a seguro de vida se guardo en la base de datos";
-        
+        //return redirect()->route('cotizarSeguro');
+        return view('cotizaciones.formSeguros' , compact('segurito'));
     }
 
     /**

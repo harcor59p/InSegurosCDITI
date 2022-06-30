@@ -14,5 +14,6 @@ class Seguro extends Model
         'nombres',
         'apellidos',
         'edad',
+        'capitalAsegurado',
     ];
 }

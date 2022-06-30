@@ -15,11 +15,11 @@
 
                     <img src="img/logoMenuRemov.png" class="card-img-top" alt="..." style="width:auto; height: auto; margin:10px auto; display:block;">
                     <ul class="list-group list-group-flush" >
-                        <li class="list-group-item text-center" style="font-weight: bold; background-color: #e4e4e4;">Valor Estimado de $capitalAsegurado Pesos!</li>
+                        <li class="list-group-item text-center" style="font-weight: bold; background-color: #e4e4e4;">Valor Estimado de $ Pesos!</li>
                     </ul>
                     <div class="card-body" style="padding: 1rem 1rem 0rem">
                         <h5 class="card-title" style="font-weight: bold;">Felicidades!</h5>
-                        <p class="card-text"><span>Hemos calculado el Seguro de vida perfecto para ti y tu familia con tan solo 12 cuotas de $cuotas por un año, asegurate y vive tranquilo. </span>
+                        <p class="card-text"><span>Hemos calculado el Seguro de vida perfecto para ti y tu familia con tan solo 12 cuotas de $ por un año, asegurate y vive tranquilo. </span>
                         </p>
                         <p class="text-center" style="font-weight: bold;">Seguros que te Cuidan</p>
                     </div>
@@ -34,10 +34,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Nombres</td>
-                            <td>Apellidos</td>
-                            <td>Edad</td>
-                            <td>capitalAsegurado</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                     </table>

@@ -19,6 +19,7 @@ class CreateSegurosTable extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('edad');
+            $table->integer('capitalAsegurado')->default(0);
             $table->timestamps();
         });
     }
