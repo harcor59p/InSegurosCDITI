@@ -5,7 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,7 @@ Route::post('register',[RegisterController::class, 'register'])->name('register'
 Route::view('register','register');
 Route::put('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('/clientes', ClienteController::class);
+Route::resource('/usuarios', UserController::class);
 
 //Route::view('dashboard','dashboard');
 //Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -44,7 +45,6 @@ Route::middleware(['auth'])->group(function(){
 
 
 
-    Route::resource('/usuarios', UsersController::class);
 
 });
 

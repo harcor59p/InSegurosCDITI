@@ -50,7 +50,7 @@
         <div class="options__menu">
 
 
-            <a href="/dashboard" class="select">
+            <a href="/dashboard">
                 <div class="option">
                     <i class="fa-solid fa-house-chimney-user" title="Inicio"></i>
                     <h4>Inicio</h4>
