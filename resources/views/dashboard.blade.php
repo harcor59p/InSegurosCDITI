@@ -94,13 +94,15 @@
                 <div class="contenido-card">
                     <h3 class="card-title">No. Cot. SOAT</h3>
                     <br>
-                    <p class="card-text">Content</p>
+                    <p class="card-text">{{json_encode($cant_soat,TRUE)}}</p>
                 </div>
             </div>
             <div class="card">
                 <div class="contenido-card">
                     <h3 class="card-title">No. Cot. Seguro de Vida</h3>
-                    <p class="card-text">Content</p>
+                    <p class="card-text">
+                        {{json_encode($cant_vida,TRUE)}}
+                    </p>
                 </div>
             </div>
         </div>

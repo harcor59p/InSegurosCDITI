@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +16,17 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $usuari=DB::table('users')
-                                ->select('id',  'name' , 'email' , 'rol', 'updated_at')
+        $usuario=DB::table('users')
+                                ->select('id', 'name' , 'email' , 'password', 'rol', 'updated_at')
                                 ->where('id','LIKE' , '%'.$texto.'%')
-                                ->orwhere('password','LIKE' , '%'.$texto.'%')
                                 ->orwhere('name','LIKE' , '%'.$texto.'%')
                                 ->orwhere('email','LIKE' , '%'.$texto.'%')
+                                ->orwhere('password','LIKE' , '%'.$texto.'%')
                                 ->orwhere('rol','LIKE' , '%'.$texto.'%')
                                 ->orderBy('id')
                                 ->paginate(4);
 
-        return view('/usuarios.index' , compact('usuari','texto'));
+        return view('usuarios.index' , compact('usuario','texto'));
     }
 
     /**
@@ -52,8 +52,9 @@ class UsersController extends Controller
         $usuari->name = $request->input('name');
         $usuari->email = $request->input('email');
         $usuari->password = $request->input('password');
+        $usuari->rol= $request->input('rol');
         $usuari->save();
-        return redirect('/usuarios')->with('store','usuario Creado Satisfactoriamente');
+        return redirect('/usuarios')->with('store','Usuario Creado Satisfactoriamente');
     }
 
     /**
@@ -87,12 +88,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $usuari = User::find($id);
 
-        $usuari->id = $request->id;
+        $usuari = User::find($id);
+
+
         $usuari->name = $request->name;
         $usuari->email = $request->email;
         $usuari->password = $request->password;
+        $usuari->rol= $request->rol;
 
         $usuari->save();
 

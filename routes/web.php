@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SegurosController;
 use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\SeguroVidaController;
+use App\Http\Controllers\SoatController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -41,13 +44,13 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/dashboard', DashboardController::class);
 
     //--------------------- Rutas Usuarios -----------------------//
-    Route::resource('/usuarios', UsersController::class);
+    Route::resource('/usuarios', UserController::class);
 
     //--------------------- Rutas Clientes -----------------------//
     Route::resource('/clientes', ClienteController::class);
 
     //------------------------ Rutas SOAT ------------------------//
-
+    Route::resource('/soat', SoatController::class);
     //------------------ Rutas Seguro de Vida --------------------//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
     Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');

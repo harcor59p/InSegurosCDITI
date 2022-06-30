@@ -6,7 +6,7 @@
 
 <div class="container">
     <h2 class="title-cards">Datos de la nueva Cotización</h2>
-    <br><br>
+    <br>
     <div class="col-xl-12">
         <form action="" method="get">
             <div class="form-row">
@@ -25,44 +25,68 @@
                         <option value="">-- Seleccione un cliente --</option>
                         @foreach ( $clientecito as $cliente )
 
-                        <option value="{{$cliente['id']}}">{{$cliente['identificacion']}} - {{$cliente['nombre']}}</option>
+                        <option name="clisel" value="{{$cliente['id']}}">{{$cliente['identificacion']}} - {{$cliente['nombre']}}</option>
 
                         @endforeach
 
                     </select>
+                    <br>
+
+                    <br>
                 </div>
                 <div class="col-auto">
                     <input type="submit" class="btn btn-secondary" style="background-color: #4a38a7" value="Consultar">
                 </div>
             </div>
         </form>
-        <br><br>
-
-        @foreach ($datosvehi_array as $datos )
-        <div class="card d-grid gap-2 col-10 mx-auto">
-            <div class="card">
-                <h5 class="card-title">{{$datos->id}}</h5>
+        <br>
+        <h2 class="title-cards">Datos consultados para su cotización</h2>
+        <br>
+        <form action="">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Identificación</th>
+                    <th scope="col">Nombre Cliente</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Telefono</th>
+                </tr>
+                </thead>
+                <tbody>
+                  @foreach ( $clisel as $cli )
+                  <tr>
+                    <th>{{$cli->identificacion}}</th>
+                    <th>{{$cli->nombre}}</th>
+                    <th>{{$cli->email}}</th>
+                    <th>{{$cli->telefono}}</th>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+        </form>
+        <br>
+        <div class="col-xl-12">
+            <div class="form-row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item active" style="background-color: #4a38a7" >Placa: {{($datosvehi_array['licensePlate'])}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['vehicleMode']}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['serie']}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['cylinderCapacity']}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['brand']}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['services']}}</li>
+                         <li class="list-group-item">{{$datosvehi_array['color']}}</li>
+                        <li class="list-group-item">{{$datosvehi_array['riskAmount']}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                </div>
             </div>
         </div>
-
-
-
-        {{-- <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item active">{{($datos['licensePlate'])}}</li>
-                <li class="list-group-item">{{json_decode($datos[1],TRUE)}}</li>
-                <li class="list-group-item">{{json_decode($datos[2],TRUE)}}</li>
-                <li class="list-group-item">{{json_decode($datos[3],TRUE)}}</li>
-                <li class="list-group-item">{{json_decode($datos[4],TRUE)}}</li>
-                <li class="list-group-item">{{json_decode($datos[5],TRUE)}}</li>
-                 <li class="list-group-item">{{json_decode($datos[6],TRUE)}}</li>
-                <li class="list-group-item">{{json_decode($datos[7],TRUE)}}</li>
-            </ul>
-        </div> --}}
-
-        @endforeach
     </div>
 </div>
-
+<br><br><br><br><br>
 
 @endsection

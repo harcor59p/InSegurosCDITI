@@ -171,7 +171,7 @@
           @endforeach
         </tbody>
       </table>
-{{ $clientecito->links('vendor.pagination.bootstrap-4' )}}
+{{ $clientecito->links('vendor.pagination.bootstrap-4' )}}  {{--aqui esta el error---}}
 </div>
 
 <!-- Modal de Configuración -->
