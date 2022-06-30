@@ -17,17 +17,17 @@ class SoatController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $soat=DB::table('Soat')
-                                ->join('clientes' , 'soat.cliente_id' , '=' , 'clientes.id' )
-                                ->select('soat.id', 'soat.fecha_cot_soat' , 'clientes.identificacion', 'clientes.nombre' , 'soat.placa', 'soat.modelo' , 'soat.cilindraje' , 'soat.marca' , 'soat.vr_soat' )
-                                ->where('Soat.id','LIKE' , '%'.$texto.'%')
+        $soat=DB::table('Soats')
+                                ->join('clientes' , 'soats.cliente_id' , '=' , 'clientes.id' )
+                                ->select('soats.id', 'soats.fecha_cot_soat' , 'clientes.identificacion', 'clientes.nombre' , 'soats.placa', 'soats.modelo' , 'soats.cilindraje' , 'soats.marca' , 'soats.vr_soat' )
+                                ->where('Soats.id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.nombre','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.placa','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.modelo','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.cilindraje','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.marca','LIKE' , '%'.$texto.'%')
-                                ->orderBy('soat.id')
+                                ->orwhere('soats.placa','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.modelo','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.cilindraje','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.marca','LIKE' , '%'.$texto.'%')
+                                ->orderBy('soats.id')
                                 ->paginate(4);
 
         return view('cotizaciones-soat.index' , compact('soat','texto' ));
@@ -40,7 +40,7 @@ class SoatController extends Controller
      */
     public function create()
     {
-        $datosSoat = Http::withToken('112233asd')->get('http://localhost:8900',['licenseplate' => 'MMT308']);
+        $datosSoat = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
         $soat_array = $datosSoat->json();
 
         $clientecito = Cliente::all();

@@ -77,7 +77,7 @@
                 <span class="sr-only">(current)</span></a>
 
 
-            <a href="#">
+            <a href="/soat">
                 <div class="option">
                     <i class="fa-solid fa-address-book" title="Cotizar SOAT"></i>
                     <h4>Cotizar SOAT</h4>
