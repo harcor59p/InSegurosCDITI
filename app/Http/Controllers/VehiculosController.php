@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+use function Psy\debug;
+
 class VehiculosController extends Controller
 {
     /**
@@ -30,6 +32,7 @@ class VehiculosController extends Controller
                                 ->orwhere('vehiculos.marca','LIKE' , '%'.$texto.'%')
                                 ->orderBy('vehiculos.id')
                                 ->paginate(4);
+
         //$clientecito = Cliente::orderBy('id')->paginate(6);
         return view('cotizaciones-vehiculos.index' , compact('vehiculo','texto'));
 
@@ -40,15 +43,32 @@ class VehiculosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
         $datosvehi_array = $datosvehi->json();
 
+        $licenseplate = isset($request->licenseplate) ? trim($request->get('licenseplate')) : null;
+        $cliselect = isset($request->cliente_id) ? $request->get('cliente_id') : null;
         $clientecito = Cliente::all();
 
+        if($licenseplate != null && $cliselect != null){
 
-        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array'));
+            $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => $licenseplate]);
+            $datosvehi_array = $datosvehi->json();
+            //$datosvehi_array = json_decode($datosvehi);
+
+            $clisel = Cliente::where('id', $cliselect )->first();
+        }else{
+            $datosvehi_array = [];
+            $clisel = [];
+        }
+
+        //$clisel1 = json_decode($clisel);
+
+        //$hoy = getdate('d/M/y');
+        //dd($hoy);
+        return view('cotizaciones-vehiculos.create' , compact('clientecito' , 'datosvehi_array' , 'clisel'));
     }
 
     /**
@@ -60,10 +80,15 @@ class VehiculosController extends Controller
     public function store(Request $request)
     {
         $vehiculo = new vehiculo();
-        // $vehiculo->identificacion = $request->input('identificacion');
-        // $vehiculo->nombre = $request->input('nombre');
-        // $vehiculo->email = $request->input('email');
-        // $vehiculo->telefono = $request->input('telefono');
+        $vehiculo->cliente_id = $request->input('cliente_id');
+        $vehiculo->placa = $request->input('placa');
+        $vehiculo->Modelo = $request->input('Modelo');
+        $vehiculo->serie = $request->input('serie');
+        $vehiculo->cilindraje = $request->input('cilindraje');
+        $vehiculo->marca = $request->input('marca');
+        $vehiculo->color = $request->input('color');
+        $vehiculo->servicio = $request->input('servicio');
+        $vehiculo->vr_serg_vehi = $request->input('vr_serg_vehi');
         $vehiculo->save();
         return redirect('cotizaciones-vehiculos.index')->with('store','Cotización Creada Satisfactoriamente');
     }

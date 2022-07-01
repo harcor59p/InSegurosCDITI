@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Cliente;
-use App\Models\Soat;
+use App\Models\soat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -17,19 +17,19 @@ class SoatController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $soat=DB::table('Soat')
-                                ->join('clientes' , 'soat.cliente_id' , '=' , 'clientes.id' )
-                                ->select('soat.id', 'soat.fecha_cot_soat' , 'clientes.identificacion', 'clientes.nombre' , 'soat.placa', 'soat.modelo' , 'soat.cilindraje' , 'soat.marca' , 'soat.vr_soat' )
-                                ->where('Soat.id','LIKE' , '%'.$texto.'%')
+        $soat=DB::table('Soats')
+                                ->join('clientes' , 'soats.cliente_id' , '=' , 'clientes.id' )
+                                ->select('soats.id', 'soats.fecha_cot_soat' , 'clientes.identificacion', 'clientes.nombre' , 'soats.placa', 'soats.modelo' , 'soats.cilindraje' , 'soats.marca' , 'soats.vr_soat' )
+                                ->where('Soats.id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.nombre','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.placa','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.modelo','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.cilindraje','LIKE' , '%'.$texto.'%')
-                                ->orwhere('soat.marca','LIKE' , '%'.$texto.'%')
-                                ->orderBy('soat.id')
+                                ->orwhere('soats.placa','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.modelo','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.cilindraje','LIKE' , '%'.$texto.'%')
+                                ->orwhere('soats.marca','LIKE' , '%'.$texto.'%')
+                                ->orderBy('soats.id')
                                 ->paginate(4);
-        
+
         return view('cotizaciones-soat.index' , compact('soat','texto' ));
     }
 
@@ -57,7 +57,7 @@ class SoatController extends Controller
      */
     public function store(Request $request)
     {
-        $soat = new Soat();
+        $soat = new soat();
         // $vehiculo->identificacion = $request->input('identificacion');
         // $vehiculo->nombre = $request->input('nombre');
         // $vehiculo->email = $request->input('email');

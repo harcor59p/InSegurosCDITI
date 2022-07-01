@@ -3,13 +3,16 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MailCotizacionesController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SegurosController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\SeguroVidaController;
 use App\Http\Controllers\SoatController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -26,40 +29,41 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-//Rutas de Login y Resetear Contraseña
+//--------------- Rutas Login, Register y Resetear Password ---------------//
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::view('login', 'auth.login');
+Route::post('register',[RegisterController::class, 'register'])->name('register');
+Route::view('register','register');
 Route::view('resetPassword', 'resetPassword')->name('passwordReset');
 Route::post('rResetPassword', [PasswordResetController::class, 'store'])->name('rPasswordReset');
 Route::view('new-password', 'new-password');
 Route::post('newPassword', [NewPasswordController::class, 'store'])->name('nuevaContra');
 
-Route::post('register',[RegisterController::class, 'register'])->name('register');
-Route::view('register','register');
-Route::put('logout', [AuthController::class, 'logout'])->name('logout');
-Route::resource('/clientes', ClienteController::class);
-
-//Route::view('dashboard','dashboard');
-//Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-
 Route::middleware(['auth'])->group(function(){
-
-    //Ruta para ir al Dashboard
-    //Route::view('dashboard','dashboard');
+    //***** Rutas para Usuarios y Admins depues de Loguearse: *****//
     Route::resource('/dashboard', DashboardController::class);
+
+    //--------------------- Rutas Usuarios -----------------------//
+    Route::resource('/usuarios', UserController::class);
+
+    //--------------------- Rutas Clientes -----------------------//
     Route::resource('/clientes', ClienteController::class);
-    Route::resource('/vehiculos', VehiculosController::class);
-    Route::resource('/soat' , SoatController::class);
-    //Route::resource('/vehiculos', ClienteController::class);
-    //******************* Ruta para Usuarios **********************//
 
-    //******************* Rutas para Usuarios **********************//
+    //------------------------ Rutas SOAT ------------------------//
+    Route::resource('/soat', SoatController::class);
+    //------------------ Rutas Seguro de Vida --------------------//
     Route::view('segurosDeVida', 'cotizaciones.seguroVida')->name('segurosDeVida');
-    Route::view('cotizaTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name('rSeguroVida');
+    Route::post('emailSeguroDeVida-enviado', [MailCotizacionesController::class, 'store'])->name('mailSeguros');
+    Route::view('valorTuSeguroDeVida', 'cotizaciones.rSeguroVida')->name    ('rSeguroVida');
+    Route::post('seguroGuardado', [SegurosController::class, 'store'])->name('seguroGuardado');
+    Route::post('valorGuardao', [SegurosController::class, 'index'])->name('valorGuardado');
+    Route::view('cotizarSeguro', 'cotizaciones.formSeguros')->name('cotizarSeguro');
+    Route::view('cotizacionEnviada-correo', 'emails.seguros')->name('emailSeguros');
 
+    //------------------- Rutas Vehiculos ---------------------//
+    Route::resource('/vehiculos', VehiculosController::class);
+    //Route::resource('/vehiculos', ClienteController::class);
 
-    Route::resource('/usuarios', UsersController::class);
-
+    Route::put('logout', [AuthController::class, 'logout'])->name('logout');
 });
 

@@ -3141,7 +3141,11 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.1"
+=======
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
+>>>>>>> Stiven2206
             },
             "funding": [
                 {

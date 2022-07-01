@@ -8,15 +8,15 @@ class CreateSoatTable extends Migration
 {
     /**
      * Run the migrations.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      *
      *   @return void
      */
     public function up()
     {
-        Schema::create('soat', function (Blueprint $table) {
+        Schema::create('soats', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cliente_id')->unsigned();
             $table->date('fecha_cot_soat');

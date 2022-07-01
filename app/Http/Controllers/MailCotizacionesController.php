@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Seguro;
-use App\Models\Soat;
-use App\Models\User;
-use App\Models\vehiculo;
+use App\Mail\CotizacionesMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
-class DashboardController extends Controller
+class MailCotizacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,16 +16,6 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $usuarios = User::all();
-        $cant_users = $usuarios->count();
-        $vehiculos = vehiculo::all();
-        $cant_cot_vehi = $vehiculos->count();
-        $vida = Seguro::all();
-        $cant_vida = $vida->count();
-        $soat = Soat::all();
-        $cant_soat = $soat->count();
-        return view('dashboard' , compact('cant_users' , 'cant_cot_vehi' , 'cant_vida' , 'cant_soat' )) ;
-
     }
 
     /**
@@ -49,7 +36,12 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request([
+            'email' => 'email',
+        ]);
+
+        Mail::to(request('email'))->send(new CotizacionesMail);
+        return redirect()->route('segurosDeVida')->with('enviado', 'La cotizacion fue envida a su correo');
     }
 
     /**

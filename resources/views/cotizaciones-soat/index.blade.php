@@ -74,18 +74,19 @@
           </tr>
         </thead>
         <tbody>
-          
-            <tr>
-              <td>{{$soat['licensePlate']}}</td>
-              <td>{{$soat['vehicleModel']}}</td>
-              <td>{{$soat['serie']}}</td>
-              <td>{{$soat['brand']}}</td>
-              <td>{{$soat['color']}}</td>
-              <td>{{$soat['cylinderCapacity']}}</td>
-              <td>{{$soat['service']}}</td>
-              <td>{{$soat['SOATamount']}}</td>
-              <th>
-                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-nombre="" data-id="">Eliminar  <i class="fa-solid fa-trash"></i></button>
+          @foreach ( $soat as $soats )
+          <tr>
+            <th>{{soats->id}}</th>
+            <th>{{soats->fecha_cot}}</th>
+            <th>{{soats->identificacion}}</th>
+            <th>{{soats->nombre}}</th>
+            <th>{{soats->placa}}</th>
+            <th>{{soats->modelo}}</th>
+            <th>{{soats->cilindraje}}</th>
+            <th>{{soats->marca}}</th>
+            <th>{{soats->vr_soat}}</th>
+            <th>
+                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-nombre="{{$soats->placa}}" data-id="{{$soats->id}}">Eliminar  <i class="fa-solid fa-trash"></i></button>
             </th>
             </tr>
          
@@ -121,45 +122,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-  $('#deleteModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var id = button.data('id') // Extract info from data-* attributes
-  var nombre = button.data('nombre') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  action = $('#formdelete').attr('data-action').slice(0,-1);
-  action+= id;
-  $('#formdelete').attr('action',action);
-  var modal = $(this)
-  modal.find('.modal-title').text('Se va a eliminar el cliente: ' + nombre)
-
-})
-</script>
-
-<!-- Modal de Configuración -->
-
-
-
-{{-- <script>
-    $('#deditModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var id = button.data('id') // Extract info from data-* attributes
-    var nombre = button.data('nombre') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    action = $('#formdelete').attr('data-action').slice(0,-1);
-    action+= id;
-    $('#formdelete').attr('action',action);
-    var modal = $(this)
-    modal.find('.modal-title').text('Se va a eliminar el cliente: ' + nombre)
-
-  })
-  </script> --}}
-
-
-
-
-@endsection

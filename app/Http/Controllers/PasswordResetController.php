@@ -40,11 +40,9 @@ class PasswordResetController extends Controller
         request([
             'emailreset' => 'emailreset'
         ]);
-
         $status = Password::sendResetLink(
             $request->only('email')
         );
-
 
         Mail::to(request('emailreset'))->send(new LinkResetPassword);
 

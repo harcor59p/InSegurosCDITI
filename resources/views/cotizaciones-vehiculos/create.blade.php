@@ -6,15 +6,15 @@
 
 <div class="container">
     <h2 class="title-cards">Datos de la nueva Cotización</h2>
-    <br><br>
+    <br>
     <div class="col-xl-12">
-        <form action="" method="get">
+        <form action="{{Route('vehiculos.create')}}" method="get">
             <div class="form-row">
                 <div class="col-sm-2">
                     <label>Ingrese aqui su Placa: </label>
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" name="licenseplate" placeholder="Placa" class="form-control" >
+                    <input type="text" name="licenseplate" value="licenseplate" placeholder="Placa" class="form-control" >
                 </div>
                 <div class="col-sm-2">
                     <label>Seleccione el Cliente: </label>
@@ -25,7 +25,7 @@
                         <option value="">-- Seleccione un cliente --</option>
                         @foreach ( $clientecito as $cliente )
 
-                        <option value="{{$cliente['id']}}">{{$cliente['identificacion']}} - {{$cliente['nombre']}}</option>
+                        <option name="cliselect" value="{{$cliente['id']}}">{{$cliente['identificacion']}} - {{$cliente['nombre']}}</option>
 
                         @endforeach
 
@@ -36,24 +36,61 @@
                 </div>
             </div>
         </form>
-        <br><br>
-        
-        {{-- @foreach ($datosvehi_array as $datos )
-        <div class="col-md-6">
-            <ul class="list-group"></ul>
-            <li class="list-group-item active">{{$datos->licensePlate}}</li>
-            <li class="list-group-item">{{$datos->vehicleMode}}</li>
-            <li class="list-group-item">{{$datos->serie}}</li>
-            <li class="list-group-item">{{$datos->cylinderCapacity}}</li>
-            <li class="list-group-item">{{$datos->brand}}</li>
-            <li class="list-group-item">{{$datos->services}}</li>
-            <li class="list-group-item">{{$datos->color}}</li>
-            <li class="list-group-item">{{$datos->riskAmount}}</li>
-        </div>
-
-        @endforeach --}}
+        <br>
+        <h2 class="title-cards">Datos consultados para su cotización</h2>
+        <br>
+        @if($clisel)
+        <form action="{{Route('vehiculos.store')}}" method="post">
+            @csrf
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Identificación</th>
+                    <th scope="col">Nombre Cliente</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {{-- @foreach ( $clisel as $cli ) --}}
+                  <tr>
+                    <th>{{$clisel['id']}}</th>
+                    <th>{{$clisel['identificacion']}}</th>
+                    <th>{{$clisel['nombre']}}</th>
+                    <th>{{$clisel['email']}}</th>
+                    <th>{{$clisel['telefono']}}</th>
+                    </tr>
+                  {{-- @endforeach --}}
+                </tbody>
+              </table>
+              <br>
+              <div class="col-xl-12">
+                  <div class="form-row">
+                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-4">
+                          <ul class="list-group">
+                              <li class="list-group-item active" style="background-color: #4a38a7" name="placa">Placa: {{($datosvehi_array['licensePlate'])}}</li>
+                              <li class="list-group-item" name="Modelo">Modelo: {{$datosvehi_array['vehicleMode']}}</li>
+                              <li class="list-group-item" name="serie">Serie: {{$datosvehi_array['serie']}}</li>
+                              <li class="list-group-item" name ="cilindraje">Cilindraje: {{$datosvehi_array['cylinderCapacity']}}</li>
+                              <li class="list-group-item" name="marca">Marca: {{$datosvehi_array['brand']}}</li>
+                              <li class="list-group-item" name="servicio">Servicio: {{$datosvehi_array['services']}}</li>
+                              <li class="list-group-item" name="color">Color: {{$datosvehi_array['color']}}</li>
+                              <li class="list-group-item"name="vr_serg_vehi">Valor del Seguro: {{$datosvehi_array['riskAmount']}}</li>
+                          </ul>
+                          <br>
+                          <button class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7" type="submit">Crear Cotización</button>
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                  </div>
+              </div>
+        </form>
+        @endif
     </div>
 </div>
-
+<br><br><br><br><br>
 
 @endsection
