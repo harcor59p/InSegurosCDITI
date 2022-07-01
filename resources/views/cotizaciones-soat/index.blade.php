@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 
-@section('titulo', 'Cotizar precio de Soat')
+@section('titulo', 'Cotizador Seguro Todo Riesgos - Vehiculos')
 
 @section('main')
 
 <br>
 <div class="container">
-    <h2 class="title-cards">Cotizaciones Seguros - SOAT</h2>
+    <h2 class="title-cards">Cotizaciones Seguros - Vehiculos</h2>
     <br><br>
 
     @if (\Session::has('store'))
@@ -29,7 +29,7 @@
     <div class="row">
 
         <div class="col-xl-12">
-            <form action="{{route('soat.create')}}" method="get">
+            <form action="{{route('vehiculos.create')}}" method="get">
                 <div class="form-row">
                     <div class="col-sm-7">
                         <button type="submit" class="btn btn-secondary" style="background-color: #4a38a7">Crear Cotización</button>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <form action="{{Route('soat.store')}}" method="post">
+    <form action="{{Route('vehiculos.store')}}" method="post">
         @csrf
         @if ($errors->any())
             @foreach ($errors->all() as $alerta )
@@ -62,35 +62,33 @@
     <table class="table table-striped">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Identificación</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Placa</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Cilindraje</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Vr Soat</th>
-            <th scope="col">Acciones</th>
+            <th scope="col">PLACA</th>
+            <th scope="col">MODELO</th>
+            <th scope="col">SERIE</th>
+            <th scope="col">MARCA</th>
+            <th scope="col">COLOR</th>
+            <th scope="col">CILINDRAJE</th>
+            <th scope="col">TIPO DE SERVICIO</th>
+            <th scope="col">VALOR SOAT</th>
+            
           </tr>
         </thead>
         <tbody>
-          @foreach ( $soat as $soatss )
-          <tr>
-            <th>{{soats->id}}</th>
-            <th>{{soats->fecha_cot}}</th>
-            <th>{{soats->identificacion}}</th>
-            <th>{{soats->nombre}}</th>
-            <th>{{soats->placa}}</th>
-            <th>{{soats->modelo}}</th>
-            <th>{{soats->cilindraje}}</th>
-            <th>{{soats->marca}}</th>
-            <th>{{soats->vr_soat}}</th>
-            <th>
-                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-nombre="{{$soats->placa}}" data-id="{{$soats->id}}">Eliminar  <i class="fa-solid fa-trash"></i></button>
+          
+            <tr>
+              <td>{{$soat['licensePlate']}}</td>
+              <td>{{$soat['vehicleModel']}}</td>
+              <td>{{$soat['serie']}}</td>
+              <td>{{$soat['brand']}}</td>
+              <td>{{$soat['color']}}</td>
+              <td>{{$soat['cylinderCapacity']}}</td>
+              <td>{{$soat['service']}}</td>
+              <td>{{$soat['SOATamount']}}</td>
+              <th>
+                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: #4a38a7" data-toggle="modal" data-target="#deleteModal" data-nombre="" data-id="">Eliminar  <i class="fa-solid fa-trash"></i></button>
             </th>
             </tr>
-          @endforeach
+         
         </tbody>
       </table>
 {{$soat->links('vendor.pagination.bootstrap-4')}}
@@ -114,7 +112,7 @@
 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-        <form  id="formdelete" action="{{route('soat.destroy', 1 )}}" data-action="{{route('soat.destroy', 1)}}"  method="post">
+        <form  id="formdelete" action="{{route('vehiculos.destroy', 1 )}}" data-action="{{route('vehiculos.destroy', 1)}}"  method="post">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-primary" style="background-color: #4a38a7">Eliminar</button>
@@ -123,3 +121,45 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $('#deleteModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id = button.data('id') // Extract info from data-* attributes
+  var nombre = button.data('nombre') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  action = $('#formdelete').attr('data-action').slice(0,-1);
+  action+= id;
+  $('#formdelete').attr('action',action);
+  var modal = $(this)
+  modal.find('.modal-title').text('Se va a eliminar el cliente: ' + nombre)
+
+})
+</script>
+
+<!-- Modal de Configuración -->
+
+
+
+{{-- <script>
+    $('#deditModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id') // Extract info from data-* attributes
+    var nombre = button.data('nombre') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    action = $('#formdelete').attr('data-action').slice(0,-1);
+    action+= id;
+    $('#formdelete').attr('action',action);
+    var modal = $(this)
+    modal.find('.modal-title').text('Se va a eliminar el cliente: ' + nombre)
+
+  })
+  </script> --}}
+
+
+
+
+@endsection

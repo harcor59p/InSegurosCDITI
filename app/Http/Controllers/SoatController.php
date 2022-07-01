@@ -40,13 +40,13 @@ class SoatController extends Controller
      */
     public function create()
     {
-        $datosSoat = Http::withToken('112233asd')->get('http://localhost:8900',['licenseplate' => 'MMT308']);
-        $soat_array = $datosSoat->json();
+        $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => 'MMT308']);
+        $soat_array = $datosvehi->json();
 
         $clientecito = Cliente::all();
 
 
-        return view('cotizaciones-soat.create' , compact('clientecito' , 'soat_array'));
+        return view('cotizaciones-soat.index' , compact('clientecito' , 'soat_array'));
     }
 
     /**
@@ -63,7 +63,7 @@ class SoatController extends Controller
         // $vehiculo->email = $request->input('email');
         // $vehiculo->telefono = $request->input('telefono');
         $soat->save();
-        return redirect('cotizaciones-soat.index')->with('store','Cotización Creada Satisfactoriamente');
+        return redirect('cotizaciones-soat.create')->with('store','Cotización Creada Satisfactoriamente');
     }
 
     /**

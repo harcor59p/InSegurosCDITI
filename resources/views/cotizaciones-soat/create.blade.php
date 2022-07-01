@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
-@section('titulo', ' Cotizar SOAT')
+@section('titulo', 'Crear Cotización Seguro Todo Riesgos - SOAT')
 
 @section('main')
 
 <div class="container">
-    <h2 class="title-cards">Datos de la nueva Cotización de Soat</h2>
+    <h2 class="title-cards">Datos de la nueva Cotización</h2>
     <br><br>
     <div class="col-xl-12">
         <form action="" method="get">
@@ -38,20 +38,20 @@
         </form>
         <br><br>
         
-        {{-- @foreach ($datosvehi_array as $datos )
+        
         <div class="col-md-6">
             <ul class="list-group"></ul>
-            <li class="list-group-item active">{{$datos->licensePlate}}</li>
-            <li class="list-group-item">{{$datos->vehicleMode}}</li>
-            <li class="list-group-item">{{$datos->serie}}</li>
-            <li class="list-group-item">{{$datos->cylinderCapacity}}</li>
-            <li class="list-group-item">{{$datos->brand}}</li>
-            <li class="list-group-item">{{$datos->services}}</li>
-            <li class="list-group-item">{{$datos->color}}</li>
-            <li class="list-group-item">{{$datos->riskAmount}}</li>
+            <li class="list-group-item active">{{$soat['licensePlate']}}</li>
+            <li class="list-group-item">{{$soat['vehicleModel']}}</li>
+            <li class="list-group-item">{{$soat['serie']}}</li>
+            <li class="list-group-item">{{$soat['cylinderCapacity']}}</li>
+            <li class="list-group-item">{{$soat['brand']}}</li>
+            <li class="list-group-item">{{$soat['service']}}</li>
+            <li class="list-group-item">{{$soat['color']}}</li>
+            <li class="list-group-item">{{$soat['SOATamount']}}</li>
         </div>
 
-        @endforeach --}}
+        
     </div>
 </div>
 
