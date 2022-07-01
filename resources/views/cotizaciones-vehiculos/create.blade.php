@@ -39,7 +39,7 @@
         <br>
         <h2 class="title-cards">Datos consultados para su cotización</h2>
         <br>
-        @if($clisel > 0)
+        @if($clisel)
         <form action="{{Route('vehiculos.store')}}" method="post">
             @csrf
             <table class="table table-striped">

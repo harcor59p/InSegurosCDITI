@@ -51,7 +51,7 @@ class VehiculosController extends Controller
         $clientecito = Cliente::all();
 
         if($licenseplate != null && $cliselect != null){
-            
+
             $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => $licenseplate]);
             $datosvehi_array = $datosvehi->json();
             //$datosvehi_array = json_decode($datosvehi);
@@ -59,7 +59,7 @@ class VehiculosController extends Controller
             $clisel = Cliente::where('id', $cliselect )->first();
         }else{
             $datosvehi_array = [];
-            $clisel = null;
+            $clisel = [];
         }
 
         //$clisel1 = json_decode($clisel);
