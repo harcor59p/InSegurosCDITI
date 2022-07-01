@@ -46,11 +46,12 @@ class VehiculosController extends Controller
     public function create(Request $request)
     {
 
-        $licenseplate = isset($request->licenseplate) ? trim($request->get('licenseplate')) : '';
-        $cliselect = isset($request->cliselect) ? $request->get('cliselect') : '';
+        $licenseplate = isset($request->licenseplate) ? trim($request->get('licenseplate')) : null;
+        $cliselect = isset($request->cliente_id) ? $request->get('cliente_id') : null;
         $clientecito = Cliente::all();
 
-        if($licenseplate != '' && $cliselect != ''){
+        if($licenseplate != null && $cliselect != null){
+            
             $datosvehi = Http::withToken('112233asd')->get('http://localhost:9000',['licenseplate' => $licenseplate]);
             $datosvehi_array = $datosvehi->json();
             //$datosvehi_array = json_decode($datosvehi);
