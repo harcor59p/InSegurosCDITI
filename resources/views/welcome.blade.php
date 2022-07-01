@@ -17,21 +17,21 @@
         <br><br>
         <div class="col-xl-12">
             <div class="form-row">
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <a href="{{Route('register')}}" class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7;">
                         Registrarse
                      </a>
                 </div>
                 <div class="col-sm-2">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <a href="{{Route('login')}}" class="btn btn-secondary btn-lg btn-block" style="background-color: #4a38a7;">
                        Ingresar
                     </a>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                 </div>
             </div>
         </div>
