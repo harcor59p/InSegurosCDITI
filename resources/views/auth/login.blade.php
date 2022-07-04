@@ -74,6 +74,7 @@
                         </div>
 
                         @error('email') {{ $message }} @enderror
+                        
                         <!-- Email input -->
                         <div class="form-outline mb-3 pt-2">
                             <input type="email" required autofocus value="{{ old('email' )}}" id="user" name="email" class="form-control form-control-lg" placeholder="Usuario..."/>
