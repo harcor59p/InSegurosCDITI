@@ -10,7 +10,6 @@ class Soat extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fecha_cot_soat',
         'placa',
         'Modelo',
         'serie',

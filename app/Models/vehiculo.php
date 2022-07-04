@@ -10,7 +10,6 @@ class vehiculo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fecha_cot',
         'placa',
         'Modelo',
         'serie',

@@ -22,7 +22,7 @@ class VehiculosController extends Controller
         $texto = trim($request->get('texto'));
         $vehiculo=DB::table('vehiculos')
                                 ->join('clientes' , 'vehiculos.cliente_id' , '=' , 'clientes.id' )
-                                ->select('vehiculos.id', 'vehiculos.fecha_cot' , 'clientes.identificacion', 'clientes.nombre' , 'vehiculos.placa', 'vehiculos.modelo' , 'vehiculos.cilindraje' , 'vehiculos.marca' , 'vehiculos.vr_serg_vehi' )
+                                ->select('vehiculos.id',  'clientes.identificacion', 'clientes.nombre' , 'vehiculos.placa', 'vehiculos.modelo' , 'vehiculos.cilindraje' , 'vehiculos.marca' , 'vehiculos.vr_serg_vehi' )
                                 ->where('vehiculos.id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('clientes.nombre','LIKE' , '%'.$texto.'%')
@@ -78,17 +78,17 @@ class VehiculosController extends Controller
     public function store(Request $request)
     {
         $vehiculo = new vehiculo();
-        $vehiculo->cliente_id = $request->input('cliente_id');
-        $vehiculo->placa = $request->input('placa');
-        $vehiculo->Modelo = $request->input('Modelo');
-        $vehiculo->serie = $request->input('serie');
-        $vehiculo->cilindraje = $request->input('cilindraje');
-        $vehiculo->marca = $request->input('marca');
-        $vehiculo->color = $request->input('color');
-        $vehiculo->servicio = $request->input('servicio');
-        $vehiculo->vr_serg_vehi = $request->input('vr_serg_vehi');
+        $vehiculo->cliente_id = $request->cliente_id;
+        $vehiculo->placa = $request->placa;
+        $vehiculo->Modelo = $request->Modelo;
+        $vehiculo->serie = $request->serie;
+        $vehiculo->cilindraje = $request->cilindraje;
+        $vehiculo->marca = $request->marca;
+        $vehiculo->color = $request->color;
+        $vehiculo->servicio = $request->servicio;
+        $vehiculo->vr_serg_vehi = $request->vr_serg_vehi;
         $vehiculo->save();
-        return redirect('cotizaciones-vehiculos.index')->with('store','Cotización Creada Satisfactoriamente');
+        return redirect('/vehiculos')->with('store','Cotización Creada Satisfactoriamente');
     }
 
     /**
@@ -133,6 +133,7 @@ class VehiculosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        vehiculo::destroy($id);
+        return redirect('/vehiculos')->with('destroy','Cotización Eliminada');
     }
 }

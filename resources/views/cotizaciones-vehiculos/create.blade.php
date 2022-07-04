@@ -14,7 +14,7 @@
                     <label>Ingrese aqui su Placa: </label>
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" name="licenseplate" value="licenseplate" placeholder="Placa" class="form-control" >
+                    <input type="text" name="licenseplate" placeholder="Placa" class="form-control" >
                 </div>
                 <div class="col-sm-2">
                     <label>Seleccione el Cliente: </label>
@@ -42,6 +42,16 @@
         @if($clisel)
         <form action="{{Route('vehiculos.store')}}" method="post">
             @csrf
+            <input type="hidden" name="cliente_id" class="form-control" value="{{$clisel['id']}}">
+            <input type="hidden" name="placa" class="form-control" value="{{$datosvehi_array['licensePlate']}}">
+            <input type="hidden" name="Modelo" class="form-control" value="{{$datosvehi_array['vehicleMode']}}">
+            <input type="hidden" name="serie" class="form-control" value="{{$datosvehi_array['serie']}}">
+            <input type="hidden" name="cilindraje" class="form-control" value="{{$datosvehi_array['cylinderCapacity']}}">
+            <input type="hidden" name="marca" class="form-control" value="{{$datosvehi_array['brand']}}">
+            <input type="hidden" name="servicio" class="form-control" value="{{$datosvehi_array['services']}}">
+            <input type="hidden" name="color" class="form-control" value="{{$datosvehi_array['color']}}">
+            <input type="hidden" name="vr_serg_vehi" class="form-control" value="{{$datosvehi_array['riskAmount']}}">
+
             <table class="table table-striped">
                 <thead class="thead-dark">
                 <tr>
