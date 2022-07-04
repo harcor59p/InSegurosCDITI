@@ -19,7 +19,7 @@
                 <div class="col-sm-2">
                     <label>Seleccione el Cliente: </label>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <select name="cliente_id" id="input" class="form-control">
 
                         <option value="">-- Seleccione un cliente --</option>
@@ -31,15 +31,15 @@
 
                     </select>
                 </div>
-                <div class="col-auto">
+                <div class="col-sm-2">
                     <input type="submit" class="btn btn-secondary" style="background-color: #4a38a7" value="Consultar">
                 </div>
             </div>
         </form>
+        @if($clisel)
         <br>
         <h2 class="title-cards">Datos consultados para su cotización</h2>
         <br>
-        @if($clisel)
         <form action="{{Route('vehiculos.store')}}" method="post">
             @csrf
             <input type="hidden" name="cliente_id" class="form-control" value="{{$clisel['id']}}">

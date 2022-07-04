@@ -17,7 +17,7 @@ class ClienteController extends Controller
     {
         $texto = trim($request->get('texto'));
         $clientecito=DB::table('clientes')
-                                ->select('id' , 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at')
+                                ->select('id' , 'identificacion', 'nombre' , 'email' , 'telefono', 'updated_at' , 'tipo_id')
                                 ->where('id','LIKE' , '%'.$texto.'%')
                                 ->orwhere('identificacion','LIKE' , '%'.$texto.'%')
                                 ->orwhere('nombre','LIKE' , '%'.$texto.'%')
@@ -52,6 +52,7 @@ class ClienteController extends Controller
         $clientecito->nombre = $request->input('nombre');
         $clientecito->email = $request->input('email');
         $clientecito->telefono = $request->input('telefono');
+        $clientecito->tipo_id = $request->input('tipo_id');
         $clientecito->save();
         return redirect('/clientes')->with('store','Cliente Creado Satisfactoriamente');
     }
@@ -92,7 +93,8 @@ class ClienteController extends Controller
         $clientecito->identificacion = $request->identificacion;
         $clientecito->nombre = $request->nombre;
         $clientecito->email = $request->email;
-         $clientecito->telefono = $request->telefono;
+        $clientecito->telefono = $request->telefono;
+        $clientecito->tipo_id = $request->tipo_id;
 
         $clientecito->save();
 

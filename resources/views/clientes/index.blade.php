@@ -70,6 +70,14 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <select name="tipo_id" id="input" class="form-control">
+                            <option value="">-- Seleccione un tipo de identificación --</option>
+                            <option value="CC">Cedula de Ciudadania</option>
+                            <option value="TI">Tarjeta de Identificación</option>
+                            <option value="RC">Registro Civil</option>
+                            <option value="CE">Cedula de Extranjeria</option>
+                            <option value="PA">Pasaporte</option>
+                        </select>
                     <div class="form-group">
                         <label for="identificacion" class="col-form-label">Identificación: </label>
                         <input type="text" class="form-control" id="identificacion" name="identificacion">
@@ -104,6 +112,7 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Id</th>
+            <th scope="col">Tipo Id</th>
             <th scope="col">Identificación</th>
             <th scope="col">Nombre</th>
             <th scope="col">E-mail</th>
@@ -116,6 +125,7 @@
           @foreach ( $clientecito as $cliente )
           <tr>
             <th>{{$cliente->id}}</th>
+            <th>{{$cliente->tipo_id}}</th>
             <th>{{$cliente->identificacion}}</th>
             <th>{{$cliente->nombre}}</th>
             <th>{{$cliente->email}}</th>
@@ -137,6 +147,15 @@
                                 <form action="{{route('clientes.update', $cliente->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
+
+                                    <select name="tipo_id" id="input" class="form-control">
+                                        <option value="">-- Seleccione un tipo de identificación --</option>
+                                        <option value="CC">Cedula de Ciudadania</option>
+                                        <option value="TI">Tarjeta de Identificación</option>
+                                        <option value="RC">Registro Civil</option>
+                                        <option value="CE">Cedula de Extranjeria</option>
+                                        <option value="PA">Pasaporte</option>
+                                    </select>
                                 <div class="form-group">
                                     <label for="identificacion" class="col-form-label">Identificación: </label>
                                     <input type="text" class="form-control" id="identificacion" value="{{$cliente->identificacion}}" name="identificacion" >
