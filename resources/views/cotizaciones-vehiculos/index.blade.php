@@ -27,21 +27,20 @@
     </div>
     @endif
     <div class="row">
-
         <div class="col-xl-12">
-            <form action="{{route('vehiculos.create')}}" method="get">
-                <div class="form-row">
+            <div class="form-row">
+                    <form action="{{route('vehiculos.create')}}" method="get">
                     <div class="col-sm-7">
                         <button type="submit" class="btn btn-secondary" style="background-color: #4a38a7">Crear Cotización</button>
                     </div>
+                    </form>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="texto" value="{{$texto}}">
                     </div>
                     <div class="col-auto">
                         <input type="submit" class="btn btn-secondary" style="background-color: #4a38a7" value="Buscar">
                     </div>
-                </div>
-            </form>
+            </div>
 
         </div>
     </div>
